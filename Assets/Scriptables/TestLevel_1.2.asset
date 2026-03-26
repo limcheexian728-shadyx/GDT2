@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::level_scriptable
   level: 1
   previousLevel: {fileID: 11400000, guid: 0ddf593a3c319a34691f60979d736d07, type: 2}
-  scoreRequired: 100
+  scoreRequired: 150
   food_list:
   - {fileID: 0}

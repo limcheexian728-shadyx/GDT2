@@ -4,17 +4,33 @@ using System.Collections;
 
 public class TouchManager_script : MonoBehaviour
 {
-    [SerializeField] private PlayerInput input;
+    [SerializeField] private Transform pointCheck;
 
-    private void Awake()
+    private PlayerInput input;
+    private GameObject heldObject;
+
+    private void Start()
     {
         input = GetComponent<PlayerInput>();
     }
 
+    private void Update()
+    {
+        if (input.actions["Click"].IsPressed())
+        {
+            pointCheck.gameObject.SetActive(true);
+            pointCheck.position = CLICKWHERE();
+        }
+        else { pointCheck.gameObject.SetActive(false); }
+    }
+
+    public void SetHeld(GameObject objectHeld) { heldObject = objectHeld; }
+
     private Vector3 CLICKWHERE()
     {
-        Vector3 mouseScreenPosition = input.actions[].ReadValue<Vector2>();
-        return Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+        Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(input.actions["Point"].ReadValue<Vector2>());
+        mouseScreenPosition.z = 0;
+        return mouseScreenPosition;
     }
 
     //private void OnClickPerformed(InputAction.CallbackContext context)
