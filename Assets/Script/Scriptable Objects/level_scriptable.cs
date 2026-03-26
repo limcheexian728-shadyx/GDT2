@@ -4,5 +4,9 @@ using UnityEngine;
 public class level_scriptable : ScriptableObject
 {
     public int level = 0;
+    public level_scriptable previousLevel;
+    public int scoreRequired = 100;
+
+    [Header("Level Items")]
     public food_scriptable[] food_list;
 }
