@@ -1,10 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class test_drag : MonoBehaviour
 {
-    [SerializeField] Button button;
-
     void Start()
     {
         
@@ -12,6 +9,16 @@ public class test_drag : MonoBehaviour
 
     void Update()
     {
-        if (button.onp)
+        
+    }
+
+    public void onDrag()
+    {
+        print("dragged");
+    }
+
+    public void stopDrag()
+    {
+        print("stop");
     }
 }
