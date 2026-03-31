@@ -8,10 +8,11 @@ public class FoodLogic : MonoBehaviour
     public Sprite cooking;
     public Sprite strawberryCake;
     SpriteRenderer currentSprite;
+    Cook_Button_ScriptableObject myBoss;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        myBoss = GameObject.FindGameObjectWithTag("Serve").GetComponent<Cook_Button_ScriptableObject>();
     }
 
     // Update is called once per frame
@@ -22,10 +23,10 @@ public class FoodLogic : MonoBehaviour
 
     public void FinishCOokingMiniGame()
     {
-        UpdatePicture(2);
+        UpdateFoodStatus(2);
     }
 
-    public void UpdatePicture(int currentFoodStatus)
+    public void UpdateFoodStatus(int currentFoodStatus)
     {
         switch (currentFoodStatus)
         {
