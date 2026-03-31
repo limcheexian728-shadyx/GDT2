@@ -10,8 +10,8 @@ public class Cook_Button_ScriptableObject : ScriptableObject
     {
         if (Which_Level == 1)
         {
-            Score_In_Level.Score_Level_1 += 10;
-            if(Score_In_Level.Score_Level_1 == 300)
+            Score_In_Level.Instance.PointsNeededLevel1 += 10;
+            if(Score_In_Level.Instance.PointsNeededLevel1 == 300)
             {
                 SceneManager.LoadScene(1);
             }
