@@ -15,7 +15,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
             case(0):
                 break;
             case(1):
-                if (Score_In_Level.Instance.PointsNeededLevel1 == 300)
+                if (Score_In_Level.Instance.PointsNeededLevel1 >= 300)
                 {
                     SceneManager.LoadScene(1);
                 }

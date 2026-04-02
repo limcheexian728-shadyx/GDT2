@@ -16,7 +16,7 @@ public class Scene_Change_Script : MonoBehaviour//ScriptableObject
         switch (nextSceneName)
         {
             case "Level_2":
-                if (Score_In_Level.Instance.PointsNeededLevel1 == 100)
+                if (Score_In_Level.Instance.PointsNeededLevel1 >= 100)
                     SceneManager.LoadScene(nextSceneName);
                 else
                     ShowTextOnClick();
@@ -52,6 +52,6 @@ public class Scene_Change_Script : MonoBehaviour//ScriptableObject
         MyTextObject.gameObject.SetActive(true);
         MyTextObject.text = "Not enough point";
         //coroutine check and wait 5 second then continue
-        MyTextObject.gameObject.SetActive(false);
+        //MyTextObject.gameObject.SetActive(false);
     }
 }
