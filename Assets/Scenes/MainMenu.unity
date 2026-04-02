@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 794706350}
   - component: {fileID: 794706349}
   - component: {fileID: 794706348}
+  - component: {fileID: 794706351}
   m_Layer: 5
   m_Name: Start_Button
   m_TagString: Untagged
@@ -581,16 +582,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 63cc365c505ea8045819d464a2ba9250, type: 2}
+      - m_Target: {fileID: 794706351}
         m_TargetAssemblyTypeName: Scene_Change_Script, Assembly-CSharp
         m_MethodName: NextScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &794706349
@@ -631,6 +632,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794706346}
   m_CullTransparentMesh: 1
+--- !u!114 &794706351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794706346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322a35d0b3a76dc4d909e2a1e721af8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scene_Change_Script
+  WhichLevelAreYou: 0
+  NumberOfSceneInSetting: 0
+  MyTextObject: {fileID: 0}
 --- !u!1 &1315143768
 GameObject:
   m_ObjectHideFlags: 0

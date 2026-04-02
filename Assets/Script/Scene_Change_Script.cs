@@ -24,6 +24,9 @@ public class Scene_Change_Script : MonoBehaviour//ScriptableObject
             case "Level_1":
                 SceneManager.LoadScene(nextSceneName);
                 break;
+            case "MainMenu":
+                SceneManager.LoadScene("LevelSelect");
+                break;
             default:
                 break;
         }
