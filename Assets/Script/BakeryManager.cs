@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -8,17 +7,7 @@ public class BakeryManager : MonoBehaviour
     public int ChocolateJamAmount;
     public int CherryAmount;
     public TMP_Text ServeText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void CookingCake()
     {
         if (CakeAmount > 0)
