@@ -15,12 +15,6 @@ public class FoodLogic : MonoBehaviour
         myBoss = GameObject.FindGameObjectWithTag("Serve").GetComponent<Cook_Button_ScriptableObject>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void FinishCOokingMiniGame()
     {
         UpdateFoodStatus(2);

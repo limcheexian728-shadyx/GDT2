@@ -10,12 +10,6 @@ public class CakeScript : MonoBehaviour
          Chef = GameObject.FindGameObjectWithTag("Chef").GetComponent<BakeryManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Onclick()
     {
         switch (WhoAreYou)
