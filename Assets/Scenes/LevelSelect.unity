@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 494100047}
   - component: {fileID: 494100050}
   - component: {fileID: 494100049}
-  - component: {fileID: 494100048}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -157,19 +156,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &494100048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494100046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd2e9335fe074f429499c8392ffda38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  ScoreUI: {fileID: 494100049}
 --- !u!114 &494100049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Scene_Change_Script
   WhichLevelAreYou: 1
   NumberOfSceneInSetting: 0
-  MyTextObject: {fileID: 0}
+  MyTextObject: {fileID: 1397672324}
 --- !u!1 &2007275735
 GameObject:
   m_ObjectHideFlags: 0
