@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
 
+
 public class BakeryManager : MonoBehaviour
 {
+    public PlayerInventoryScript playerInventory;
     public int CakeAmount;
     public int ChocolateJamAmount;
     public int CherryAmount;
@@ -17,25 +19,25 @@ public class BakeryManager : MonoBehaviour
             {
                 ChocolateJamAmount -= 1;
                 CherryAmount -= 1;
-                ServeText.text = $"You had serve a chocolate cake with cherry!!!";
-                Score_In_Level.Instance.PointsNeededLevel1 += 50;
+                ServeText.text = $"You had make a chocolate cake with cherry!!!";
+                playerInventory.ChocolateCakeWithCherryAmount++;
             }
             else if (ChocolateJamAmount > 0)
             {
                 ChocolateJamAmount -= 1;
-                ServeText.text = $"You had serve a chocolate cake!!!";
-                Score_In_Level.Instance.PointsNeededLevel1 += 25;
+                ServeText.text = $"You had make a chocolate cake!!!";
+                playerInventory.ChocolateCakeAmount++;
             }
             else if (CherryAmount > 0)
             {
                 CherryAmount -= 1;
-                ServeText.text = $"You had serve a cake with cherry!!!";
-                Score_In_Level.Instance.PointsNeededLevel1 += 15;
+                ServeText.text = $"You had make a cake with cherry!!!";
+                playerInventory.CakeWithCherryAmout++;
             }
             else
             {
-                ServeText.text = $"You had serve a cake!!!";
-                Score_In_Level.Instance.PointsNeededLevel1 += 10;
+                ServeText.text = $"You had make a cake!!!";
+                playerInventory.CakeAmount++;
             }
             ServeText.gameObject.SetActive(true);
         }

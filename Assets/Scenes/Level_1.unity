@@ -551,6 +551,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168607418}
   m_CullTransparentMesh: 1
+--- !u!1 &225687505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225687507}
+  - component: {fileID: 225687506}
+  m_Layer: 0
+  m_Name: PlayerInventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &225687506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225687505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1634f8d162737c942af81bfbb6b5a8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryScript
+  CakeAmount: 0
+  ChocolateCakeAmount: 0
+  CakeWithCherryAmout: 0
+  ChocolateCakeWithCherryAmount: 0
+--- !u!4 &225687507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225687505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327242721
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb782dc4461d2294ba22113569f15d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BakeryManager
+  playerInventory: {fileID: 0}
   CakeAmount: 0
   ChocolateJamAmount: 0
   CherryAmount: 0
@@ -2399,7 +2448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1648137537}
         m_TargetAssemblyTypeName: Cook_Button_ScriptableObject, Assembly-CSharp
-        m_MethodName: AddScore
+        m_MethodName: ServeCustomer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2409,9 +2458,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 772857731}
-        m_TargetAssemblyTypeName: BakeryManager, Assembly-CSharp
-        m_MethodName: CookingCake
+      - m_Target: {fileID: 1648137537}
+        m_TargetAssemblyTypeName: Cook_Button_ScriptableObject, Assembly-CSharp
+        m_MethodName: DetectScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2471,8 +2520,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca9c32870a3204fa9b319876956b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook_Button_ScriptableObject
+  playerInventory: {fileID: 225687506}
+  customerOrderBoss: {fileID: 1407980828}
   Which_Level_Button_Are_You: 1
-  ServeText: {fileID: 1408039762}
+  ServeText: {fileID: 1070570719}
 --- !u!1 &2048179729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,3 +2671,4 @@ SceneRoots:
   - {fileID: 1506709885}
   - {fileID: 772857732}
   - {fileID: 1407980829}
+  - {fileID: 225687507}
