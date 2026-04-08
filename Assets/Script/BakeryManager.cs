@@ -20,24 +20,24 @@ public class BakeryManager : MonoBehaviour
                 ChocolateJamAmount -= 1;
                 CherryAmount -= 1;
                 ServeText.text = $"You had make a chocolate cake with cherry!!!";
-                playerInventory.ChocolateCakeWithCherryAmount++;
+                playerInventory.ChocolateCakeWithCherry++;
             }
             else if (ChocolateJamAmount > 0)
             {
                 ChocolateJamAmount -= 1;
                 ServeText.text = $"You had make a chocolate cake!!!";
-                playerInventory.ChocolateCakeAmount++;
+                playerInventory.ChocolateCake++;
             }
             else if (CherryAmount > 0)
             {
                 CherryAmount -= 1;
                 ServeText.text = $"You had make a cake with cherry!!!";
-                playerInventory.CakeWithCherryAmout++;
+                playerInventory.CakeWithCherry++;
             }
             else
             {
                 ServeText.text = $"You had make a cake!!!";
-                playerInventory.CakeAmount++;
+                playerInventory.Cake++;
             }
             ServeText.gameObject.SetActive(true);
         }

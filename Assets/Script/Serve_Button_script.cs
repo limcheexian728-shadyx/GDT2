@@ -37,34 +37,34 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
 
     public void ServeCustomer()
     {
-        if (customerOrderBoss.Cake > 0 && playerInventory.CakeAmount > 0)
+        if (customerOrderBoss.Cake > 0 && playerInventory.Cake > 0)
         {
             customerOrderBoss.Cake--;
-            playerInventory.CakeAmount--;
+            playerInventory.Cake--;
             ServeText.text = $"You had serve a cake!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 10;
         }
-       else if (customerOrderBoss.ChocolateCake > 0 && playerInventory.ChocolateCakeAmount > 0)
+       else if (customerOrderBoss.ChocolateCake > 0 && playerInventory.ChocolateCake > 0)
         {
             customerOrderBoss.ChocolateCake--;
-            playerInventory.ChocolateCakeAmount--;
+            playerInventory.ChocolateCake--;
             ServeText.text = $"You had serve a chocolate cake!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 25;
         }
-        else if (customerOrderBoss.CakeWithCherry > 0 && playerInventory.CakeWithCherryAmout > 0)
+        else if (customerOrderBoss.CakeWithCherry > 0 && playerInventory.CakeWithCherry > 0)
         {
             customerOrderBoss.CakeWithCherry--;
-            playerInventory.CakeWithCherryAmout--;
+            playerInventory.CakeWithCherry--;
             ServeText.text = $"You had serve a cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 15;
         }
-        else if (customerOrderBoss.ChocolateCakeWithCherry > 0 && playerInventory.ChocolateCakeWithCherryAmount > 0)
+        else if (customerOrderBoss.ChocolateCakeWithCherry > 0 && playerInventory.ChocolateCakeWithCherry > 0)
         {
             customerOrderBoss.ChocolateCakeWithCherry--;
-            playerInventory.ChocolateCakeWithCherryAmount--;
+            playerInventory.ChocolateCakeWithCherry--;
             ServeText.text = $"You had serve a chocolate cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 40;
