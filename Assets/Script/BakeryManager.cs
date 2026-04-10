@@ -9,10 +9,12 @@ public class BakeryManager : MonoBehaviour
     public bool ChocolateJamAmount = false;
     public bool CherryAmount = false;
     public TMP_Text ServeText;
-    public CustomerButtonScript customerOrders;
+
+    private CustomerButtonScript customerOrders;
 
     private void Start()
     {
+        customerOrders = GetComponent<CustomerButtonScript>();
         customerOrders.ShowCustomerOrder();
     }
 
