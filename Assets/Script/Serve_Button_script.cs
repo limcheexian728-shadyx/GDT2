@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 //[CreateAssetMenu(fileName = "Cook_Button_Click",menuName ="Scriptable Object/Cook_Button_Click",order =1)]
 public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
 {
-    public PlayerInventoryScript playerInventory;
+    public BakeryManager Chef;
     public CustomerOrderManager customerOrderBoss;
     public int Which_Level_Button_Are_You = 0;
     public TMP_Text ServeText;
     public CustomerButtonScript customerOrders;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void DetectScore()
+    public void DetectScore()//I think this probably maybe ke neng boleh remove since it seems a bit useless without level selection
     {
         switch (Which_Level_Button_Are_You)
         {
@@ -38,46 +38,55 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
 
     public void ServeCustomer()
     {
-        if (customerOrderBoss.Cake > 0 && playerInventory.Cake > 0)
+        if (customerOrderBoss.Cake > 0 && Chef.CakeAmount == true)//check if custormer got order this item or not and if the button/s to make this item is clicked or not
         {
-            customerOrderBoss.Cake--;
-            playerInventory.Cake--;
-            ServeText.text = $"You had serve a cake!!!";
+            customerOrderBoss.Cake--;//minus the order from the customer
+            Chef.CakeAmount = false;//set cake button "unclick"
+            ServeText.text = $"You had serve a cake!!!";//words come out
             ServeText.gameObject.SetActive(true);
-            Score_In_Level.Instance.PointsNeededLevel1 += 10;
-            customerOrders.ShowCustomerOrder();
+            Score_In_Level.Instance.PointsNeededLevel1 += 10;//Will change to get money
+            customerOrders.ShowCustomerOrder();//show next customer order
         }
-       else if (customerOrderBoss.ChocolateCake > 0 && playerInventory.ChocolateCake > 0)
+       else if (customerOrderBoss.ChocolateCake > 0 && Chef.ChocolateJamAmount == true)//check if custormer got order this item or not and if the button/s to make this item is clicked or not
         {
             customerOrderBoss.ChocolateCake--;
-            playerInventory.ChocolateCake--;
+            Chef.ChocolateJamAmount = false;
             ServeText.text = $"You had serve a chocolate cake!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 25;
             customerOrders.ShowCustomerOrder();
         }
-        else if (customerOrderBoss.CakeWithCherry > 0 && playerInventory.CakeWithCherry > 0)
+        else if (customerOrderBoss.CakeWithCherry > 0 && Chef.CherryAmount == true)//check if custormer got order this item or not and if the button/s to make this item is clicked or not
         {
             customerOrderBoss.CakeWithCherry--;
-            playerInventory.CakeWithCherry--;
+            Chef.CakeAmount = false;
             ServeText.text = $"You had serve a cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 15;
             customerOrders.ShowCustomerOrder();
         }
-        else if (customerOrderBoss.ChocolateCakeWithCherry > 0 && playerInventory.ChocolateCakeWithCherry > 0)
+        else if (customerOrderBoss.ChocolateCakeWithCherry > 0 && Chef.ChocolateJamAmount == true && Chef.CherryAmount == true)//check if custormer got order this item or not and if the button/s to make this item is clicked or not
         {
             customerOrderBoss.ChocolateCakeWithCherry--;
-            playerInventory.ChocolateCakeWithCherry--;
+            Chef.ChocolateJamAmount = false;
+            Chef.CherryAmount = false;
             ServeText.text = $"You had serve a chocolate cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 40;
             customerOrders.ShowCustomerOrder();
         }
-        else
+        else//fail to serve customer orders and all the things will hilang
         {
+            Chef.CakeAmount = false;
+            Chef.ChocolateJamAmount = false;
+            Chef.CherryAmount = false;
             ServeText.text = $"You fail to serve the customer, you mtfking failure!!!";
             ServeText.gameObject.SetActive(true);
+            customerOrderBoss.Cake = 0;
+            customerOrderBoss.ChocolateCake = 0;
+            customerOrderBoss.CakeWithCherry = 0;
+            customerOrderBoss.ChocolateCakeWithCherry = 0;
+            customerOrders.ShowCustomerOrder();
         }
     }
 }

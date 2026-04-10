@@ -6,5 +6,4 @@ public class CustomerOrderManager : MonoBehaviour
     public int ChocolateCake = 0;
     public int CakeWithCherry = 0;
     public int ChocolateCakeWithCherry = 0;
-
 }

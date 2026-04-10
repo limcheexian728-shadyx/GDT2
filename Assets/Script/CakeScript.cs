@@ -1,11 +1,17 @@
 using TMPro;
 using UnityEngine;
+using static ingredient_scriptable;
 
 public class CakeScript : MonoBehaviour
 {
     BakeryManager Chef;
     public int WhoAreYou;
     public TMP_Text serveText;
+    public storage StoreRoom;
+    ingredient_scriptable.ingredients base_cake;
+    ingredient_scriptable.ingredients chocolate;
+    ingredient_scriptable.ingredients cherry;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +28,15 @@ public class CakeScript : MonoBehaviour
                 {
                     if (Chef.CakeAmount == false)
                     {
-                        Chef.CakeAmount = true;
+                        if (StoreRoom.GetItem(base_cake))
+                        {
+                            Chef.CakeAmount = true;
+                        }
+                        else
+                        {
+                            serveText.text = $"DIU LEI LOU MOU!!! You don't have enough cake resource";
+                            serveText.gameObject.SetActive(true);
+                        }
                     }
                     else
                     {
@@ -32,9 +46,17 @@ public class CakeScript : MonoBehaviour
                 break;
                 }
             case 2:
-                if (Chef.ChocolateJamAmount == false)
+                if (Chef.ChocolateJamAmount == false )
                 {
+                    if (StoreRoom.GetItem(chocolate))
+                    {
                     Chef.ChocolateJamAmount = true;
+                    }
+                    else
+                    {
+                        serveText.text = $"DIU LEI LOU MOU!!! You don't have enough chocolate jam resource";
+                        serveText.gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
@@ -43,9 +65,17 @@ public class CakeScript : MonoBehaviour
                 }
                 break;
             case 3:
-                if (Chef.CherryAmount == false)
+                if (Chef.CherryAmount == false )
                 {
+                    if(StoreRoom.GetItem(cherry))
+                    {
                     Chef.CherryAmount = true;
+                    }
+                    else
+                    {
+                        serveText.text = $"DIU LEI LOU MOU!!! You don't have enough cherry resource";
+                        serveText.gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
