@@ -5,32 +5,32 @@ using UnityEngine;
 public class BakeryManager : MonoBehaviour
 {
     public PlayerInventoryScript playerInventory;
-    public int CakeAmount;
-    public int ChocolateJamAmount;
-    public int CherryAmount;
+    public bool CakeAmount = false;
+    public bool ChocolateJamAmount = false;
+    public bool CherryAmount = false;
     public TMP_Text ServeText;
 
     public void CookingCake()
     {
-        if (CakeAmount > 0)
+        if (CakeAmount)
         {
-            CakeAmount -= 1;
-            if (ChocolateJamAmount > 0 && CherryAmount > 0)
+            CakeAmount = false;
+            if (ChocolateJamAmount && CherryAmount)
             {
-                ChocolateJamAmount -= 1;
-                CherryAmount -= 1;
+                ChocolateJamAmount = false;
+                CherryAmount = false;
                 ServeText.text = $"You had make a chocolate cake with cherry!!!";
                 playerInventory.ChocolateCakeWithCherry++;
             }
-            else if (ChocolateJamAmount > 0)
+            else if (ChocolateJamAmount)
             {
-                ChocolateJamAmount -= 1;
+                ChocolateJamAmount = false;
                 ServeText.text = $"You had make a chocolate cake!!!";
                 playerInventory.ChocolateCake++;
             }
-            else if (CherryAmount > 0)
+            else if (CherryAmount)
             {
-                CherryAmount -= 1;
+                CherryAmount = false;
                 ServeText.text = $"You had make a cake with cherry!!!";
                 playerInventory.CakeWithCherry++;
             }

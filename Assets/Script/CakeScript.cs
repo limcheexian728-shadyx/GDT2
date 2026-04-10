@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class CakeScript : MonoBehaviour
 {
     BakeryManager Chef;
     public int WhoAreYou;
+    public TMP_Text serveText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,13 +19,39 @@ public class CakeScript : MonoBehaviour
             case 0:
                 break;
             case 1:
-                Chef.CakeAmount += 1;
+                {
+                    if (Chef.CakeAmount == false)
+                    {
+                        Chef.CakeAmount = true;
+                    }
+                    else
+                    {
+                        serveText.text = $"You have already make a cake you fucking dumbass";
+                        serveText.gameObject.SetActive(true);
+                    }
                 break;
+                }
             case 2:
-                Chef.ChocolateJamAmount += 1;
+                if (Chef.ChocolateJamAmount == false)
+                {
+                    Chef.ChocolateJamAmount = true;
+                }
+                else
+                {
+                    serveText.text = $"You have already added chocolate jam you fucking dumbass";
+                    serveText.gameObject.SetActive(true);
+                }
                 break;
             case 3:
-                Chef.CherryAmount += 1;
+                if (Chef.CherryAmount == false)
+                {
+                    Chef.CherryAmount = true;
+                }
+                else
+                {
+                    serveText.text = $"You have already addded cherry you fucking dumbass";
+                    serveText.gameObject.SetActive(true);
+                }
                 break;
             default:
                 break;
