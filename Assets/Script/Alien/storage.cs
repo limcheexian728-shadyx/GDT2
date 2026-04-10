@@ -1,8 +1,18 @@
 using UnityEngine;
+using static ingredient_scriptable;
 
 public class storage : MonoBehaviour
 {
+    [SerializeField] private int gain = 1;
     [SerializeField] ingredient_scriptable[] storageIngredients;
+
+    [Header("Debug")]
+    [SerializeField] private bool reset = false;
+
+    void Start()
+    {
+        if (reset) { for (int i = 0; i < storageIngredients.Length; i++) { storageIngredients[i].Reset(); } }
+    }
 
     public bool GetItem(ingredient_scriptable.ingredients item)
     {
@@ -17,5 +27,15 @@ public class storage : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void Clicked()
+    {
+        for (int i = 0; i < gain; i++)
+        {
+            int selection = Random.Range(0, storageIngredients.Length);
+            storageIngredients[selection].Add(1);
+            print(storageIngredients[selection].name + " - " + storageIngredients[selection].GetAmount());
+        }
     }
 }
