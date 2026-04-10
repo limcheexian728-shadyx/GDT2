@@ -9,6 +9,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
     public CustomerOrderManager customerOrderBoss;
     public int Which_Level_Button_Are_You = 0;
     public TMP_Text ServeText;
+    public CustomerButtonScript customerOrders;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void DetectScore()
     {
@@ -44,6 +45,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
             ServeText.text = $"You had serve a cake!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 10;
+            customerOrders.ShowCustomerOrder();
         }
        else if (customerOrderBoss.ChocolateCake > 0 && playerInventory.ChocolateCake > 0)
         {
@@ -52,6 +54,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
             ServeText.text = $"You had serve a chocolate cake!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 25;
+            customerOrders.ShowCustomerOrder();
         }
         else if (customerOrderBoss.CakeWithCherry > 0 && playerInventory.CakeWithCherry > 0)
         {
@@ -60,6 +63,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
             ServeText.text = $"You had serve a cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 15;
+            customerOrders.ShowCustomerOrder();
         }
         else if (customerOrderBoss.ChocolateCakeWithCherry > 0 && playerInventory.ChocolateCakeWithCherry > 0)
         {
@@ -68,6 +72,7 @@ public class Cook_Button_ScriptableObject : MonoBehaviour/*ScriptableObject*/
             ServeText.text = $"You had serve a chocolate cake with cherry!!!";
             ServeText.gameObject.SetActive(true);
             Score_In_Level.Instance.PointsNeededLevel1 += 40;
+            customerOrders.ShowCustomerOrder();
         }
         else
         {
