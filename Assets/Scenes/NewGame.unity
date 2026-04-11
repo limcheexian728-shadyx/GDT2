@@ -174,7 +174,6 @@ MonoBehaviour:
   ChocolateCake: 0
   CakeWithCherry: 0
   ChocolateCakeWithCherry: 0
-  InventoryList: {fileID: 2004532382}
 --- !u!114 &103050361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,6 +1427,7 @@ GameObject:
   - component: {fileID: 882054805}
   - component: {fileID: 882054804}
   - component: {fileID: 882054803}
+  - component: {fileID: 882054806}
   m_Layer: 5
   m_Name: Throw
   m_TagString: Untagged
@@ -1498,7 +1498,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882054804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 882054806}
+        m_TargetAssemblyTypeName: RubbishBinScript, Assembly-CSharp
+        m_MethodName: Diu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &882054804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,6 +1549,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882054801}
   m_CullTransparentMesh: 1
+--- !u!114 &882054806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882054801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0103fe700e6b2f341887f1095923e1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RubbishBinScript
+  BakeryBoss: {fileID: 103050363}
 --- !u!1 &907906951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1734,6 @@ RectTransform:
   - {fileID: 1160788286}
   - {fileID: 1522076095}
   - {fileID: 882054802}
-  - {fileID: 2004532384}
   - {fileID: 1840952921}
   - {fileID: 1882574281}
   m_Father: {fileID: 1195236974}
@@ -1769,6 +1793,7 @@ GameObject:
   - component: {fileID: 1111814070}
   - component: {fileID: 1111814069}
   - component: {fileID: 1111814068}
+  - component: {fileID: 1111814071}
   m_Layer: 5
   m_Name: Chocolate
   m_TagString: Untagged
@@ -1838,7 +1863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111814069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1111814071}
+        m_TargetAssemblyTypeName: CakeScript, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1111814069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,6 +1914,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111814066}
   m_CullTransparentMesh: 1
+--- !u!114 &1111814071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111814066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446a17ca62544c649b0874694801c5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CakeScript
+  WhoAreYou: 2
+  serveText: {fileID: 1882574279}
+  StoreRoom: {fileID: 245785385}
 --- !u!1 &1141331341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2020,7 @@ GameObject:
   - component: {fileID: 1160788289}
   - component: {fileID: 1160788288}
   - component: {fileID: 1160788287}
+  - component: {fileID: 1160788290}
   m_Layer: 5
   m_Name: Cherry
   m_TagString: Untagged
@@ -2037,7 +2090,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1160788288}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160788290}
+        m_TargetAssemblyTypeName: CakeScript, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1160788288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2076,6 +2141,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160788285}
   m_CullTransparentMesh: 1
+--- !u!114 &1160788290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160788285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446a17ca62544c649b0874694801c5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CakeScript
+  WhoAreYou: 3
+  serveText: {fileID: 1882574279}
+  StoreRoom: {fileID: 245785385}
 --- !u!1 &1195236973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,6 +2566,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1522076099}
         m_TargetAssemblyTypeName: Cook_Button_ScriptableObject, Assembly-CSharp
         m_MethodName: ServeCustomer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1522076099}
+        m_TargetAssemblyTypeName: Cook_Button_ScriptableObject, Assembly-CSharp
+        m_MethodName: CheckCustomerOrderList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3030,7 +3122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.6, y: 203.6}
+  m_AnchoredPosition: {x: 37.3, y: 213.5}
   m_SizeDelta: {x: 89.33, y: 23.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1882574278
@@ -3167,7 +3259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.8, y: 167.8}
+  m_AnchoredPosition: {x: 1.6, y: 99}
   m_SizeDelta: {x: 128.81, y: 12.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1966014975
@@ -3281,150 +3373,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970375643}
   m_CullTransparentMesh: 1
---- !u!1 &2004532381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2004532384}
-  - component: {fileID: 2004532383}
-  - component: {fileID: 2004532382}
-  m_Layer: 5
-  m_Name: Inventory List
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2004532382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004532381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Cake:
-
-    Chocolate Cake:
-
-    Cake with cherry:
-
-    Chocolate cake
-    with cherry:'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 6.47
-  m_fontSizeBase: 6.47
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &2004532383
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004532381}
-  m_CullTransparentMesh: 1
---- !u!224 &2004532384
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004532381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1057662233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.9, y: 136}
-  m_SizeDelta: {x: 99.5, y: 35.76}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2140368321
 GameObject:
   m_ObjectHideFlags: 0
