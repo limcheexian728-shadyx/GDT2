@@ -13,10 +13,10 @@ public class camera_control : MonoBehaviour
     [SerializeField] private Vector3 bakeryScreenPosition;
 
     private bool alienScreen;
-    private Vector3 alienShowButton = new Vector3(10, 120, 0);
-    private Vector3 alienHideButton = new Vector3(-50, 120, 0);
-    private Vector3 bakeryShowButton = new Vector3(-10, 120, 0);
-    private Vector3 bakeryHideButton = new Vector3(50, 120, 0);
+    private Vector3 alienShowButton = new Vector3(15, 350, 0);
+    private Vector3 alienHideButton = new Vector3(-80, 350, 0);
+    private Vector3 bakeryShowButton = new Vector3(-15, 350, 0);
+    private Vector3 bakeryHideButton = new Vector3(80, 350, 0);
 
     void Start()
     {
