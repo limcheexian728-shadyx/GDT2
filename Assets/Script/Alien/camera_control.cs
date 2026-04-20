@@ -29,14 +29,14 @@ public class camera_control : MonoBehaviour
         if (alienScreen)
         {
             transform.position = Vector3.Lerp(transform.position, alienScreenPosition, camTravelSpeed * Time.deltaTime);
-            alienButton.anchoredPosition = Vector3.Lerp(alienButton.anchoredPosition, alienHideButton, camTravelSpeed * Time.deltaTime);
-            bakeryButton.anchoredPosition = Vector3.Lerp(bakeryButton.anchoredPosition, bakeryShowButton, camTravelSpeed * Time.deltaTime);
+            //alienButton.anchoredPosition = Vector3.Lerp(alienButton.anchoredPosition, alienHideButton, camTravelSpeed * Time.deltaTime);
+            //bakeryButton.anchoredPosition = Vector3.Lerp(bakeryButton.anchoredPosition, bakeryShowButton, camTravelSpeed * Time.deltaTime);
         }
         else
         {
             transform.position = Vector3.Lerp(transform.position, bakeryScreenPosition, camTravelSpeed * Time.deltaTime);
-            alienButton.anchoredPosition = Vector3.Lerp(alienButton.anchoredPosition, alienShowButton, camTravelSpeed * Time.deltaTime);
-            bakeryButton.anchoredPosition = Vector3.Lerp(bakeryButton.anchoredPosition, bakeryHideButton, camTravelSpeed * Time.deltaTime);
+            //alienButton.anchoredPosition = Vector3.Lerp(alienButton.anchoredPosition, alienShowButton, camTravelSpeed * Time.deltaTime);
+            //bakeryButton.anchoredPosition = Vector3.Lerp(bakeryButton.anchoredPosition, bakeryHideButton, camTravelSpeed * Time.deltaTime);
         }
     }
 
