@@ -33,10 +33,11 @@ public class bakeryManager_script : MonoBehaviour
 
     void AddCustomer()
     {
+        nextCustomerSignal?.Invoke();
         // Getting customer data
         customer_scriptable newCustomer = customers[UnityEngine.Random.Range(0, customers.Count)];
         queue.Add(newCustomer);
-        // Instantiate the customer prefab
+        // Instantiate the customer prefab into the list
         GameObject newCustomerObject = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
         customerObjects.Add(newCustomerObject);
         // Get the customer control script to set the customer with the customer data
@@ -47,9 +48,9 @@ public class bakeryManager_script : MonoBehaviour
     void NextCustomer()
     {
         // Get order and remove the customer from queue
-        currenCustomerOrder = queue[0].GetOrder();
-        queue.RemoveAt(0);
+        currenCustomerOrder = currentCustomerObject.GetComponent<customerControl_script>().GetCustomerData().GetOrder();
         // addding a new customer to the queue so theres more customers to load
+        AddCustomer();
     }
 
     public void AddIngredient(ingredient_scriptable.ingredients item)
@@ -72,7 +73,6 @@ public class bakeryManager_script : MonoBehaviour
             // Customer unhappy
         }
         // Customer leave
-        Destroy(currentCustomerObject);
         Trash(); // Clear the order
     }
 }

@@ -4,36 +4,45 @@ using UnityEngine;
 public class customerControl_script : MonoBehaviour
 {
     [SerializeField] customer_scriptable customerData;
-    [SerializeField] float distance = 15f;
+    [SerializeField] float speed, distance = 3f;
     [SerializeField] Vector3 direction = Vector3.left;
+    Vector3 targetPosition;
 
     SpriteRenderer sprite;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        targetPosition = transform.position;
+    }
 
-        // Testing
-        Move();
+    private void Update()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
     }
 
     public void SetCustomer(customer_scriptable data)
     {
         customerData = data;
-        sprite.sprite = data.customerSprite;
+        sprite.sprite = customerData.customerSprite;
     }
+
+    public customer_scriptable GetCustomerData() { return customerData; }
 
     public void Move()
     {
-        StartCoroutine(Moving());
+        targetPosition += direction * distance;
     }
 
-    IEnumerator Moving()
+    public void Served(bool correctOrder)
     {
-        for (int i = 0; i < 15; i++)
+        if (correctOrder)
         {
-            transform.position += direction.normalized * 0.1f;
-            yield return new WaitForSeconds(0.1f);
+
+        }
+        else
+        {
+
         }
     }
 }
