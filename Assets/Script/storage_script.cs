@@ -1,11 +1,11 @@
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static ingredient_scriptable;
 
 public class storage_script : MonoBehaviour
 {
     public static storage_script instance;
+    [SerializeField] private bool reset = false;
 
     [Header("Currency")]
     private int coins;
@@ -13,10 +13,8 @@ public class storage_script : MonoBehaviour
     [Header("Resources")]
     [SerializeField] private int gain = 1;
     [SerializeField] ingredient_scriptable[] storageIngredients;
+    [SerializeField] List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
     [SerializeField] TMP_Text[] ui_texts;
-
-    [Header("Debug")]
-    [SerializeField] private bool reset = false;
 
     private void Awake()
     {
@@ -61,11 +59,9 @@ public class storage_script : MonoBehaviour
     }
     public void Clicked()
     {
-        for (int i = 0; i < gain; i++)
+        foreach (pet_scriptable pet in unlockedPets)
         {
-            int selection = Random.Range(0, storageIngredients.Length);
-            storageIngredients[selection].Add(1);
-            print(storageIngredients[selection].name + " - " + storageIngredients[selection].GetAmount());
+            pet.ActivatePet(gain);
         }
         UpdateUI();
     }

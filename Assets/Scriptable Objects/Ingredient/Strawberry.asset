@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98163185e56c9204c90bee62c5503880, type: 3}
-  m_Name: Chocolate
+  m_Name: Strawberry
   m_EditorClassIdentifier: Assembly-CSharp::ingredient_scriptable
   type: 1
   amount: 0

@@ -9,16 +9,16 @@ public class bakeryManager_script : MonoBehaviour
 
     [Header("Spawn Customer")]
     [SerializeField] private GameObject customerPrefab;
-    [SerializeField] Transform spawnPoint;
-    private List<GameObject> customerObjects;
-    private List<customer_scriptable> customers; // potential customers that can be added into the queue
-    private List<customer_scriptable> queue; // so that can spawn a queue that reflects customers coming in
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private List<customer_scriptable> customers; // potential customers that can be added into the queue
+    private List<GameObject> customerObjects = new List<GameObject>();
+    private List<customer_scriptable> queue = new List<customer_scriptable>(); // so that can spawn a queue that reflects customers coming in
     public event Action nextCustomerSignal;
 
     [Header("Order Handler")]
     private GameObject currentCustomerObject;
     private recipe_scriptable currenCustomerOrder;
-    private List<ingredient_scriptable.ingredients> ingredientsSelected;
+    private List<ingredient_scriptable.ingredients> ingredientsSelected = new List<ingredient_scriptable.ingredients>();
 
     private void Awake()
     {

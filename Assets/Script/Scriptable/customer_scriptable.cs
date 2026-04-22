@@ -10,14 +10,14 @@ public class customer_scriptable : ScriptableObject
     // List of Orders
     [SerializeField] private List<recipe_scriptable> possibleOrders;
     // Unlocked
-    [SerializeField] private List<ingredient_scriptable> requiredUnlocks;
+    [SerializeField] private List<pet_scriptable> requiredUnlocks;
     private bool isUnlocked;
     // Has Appeared
     private bool isAppeared;
     // Rarity (Weight: higher = higher chance to get spawned)
     [SerializeField] private float weight;
 
-    public void SetIngredients()
+    public void SetPets()
     {
         for (int i = 0; i < requiredUnlocks.Count; i++)
         {
@@ -25,7 +25,7 @@ public class customer_scriptable : ScriptableObject
         }
     }
 
-    public bool CheckState(List<ingredient_scriptable> unlockedList)
+    public bool CheckState(List<pet_scriptable> unlockedList)
     {
         if (isUnlocked)
             return true;
