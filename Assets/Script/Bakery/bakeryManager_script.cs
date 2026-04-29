@@ -11,6 +11,7 @@ public class bakeryManager_script : MonoBehaviour
     [SerializeField] GameObject customerPrefab; // the customer body
     [SerializeField] Transform spawnPoint; // where to spawn the customer
     [SerializeField] List<customer_scriptable> customers; // potential customers that can be added into the queue
+    [SerializeField] List<customer_scriptable> allCustomers;
 
     [Header("Order Display")]
     [SerializeField] GameObject[] orderDisplay;

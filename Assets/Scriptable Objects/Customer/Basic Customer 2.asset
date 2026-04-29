@@ -15,7 +15,7 @@ MonoBehaviour:
   customerSprite: {fileID: -619132407, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: de3da30068e329447ab86fc32b80946c, type: 2}
-  - {fileID: 11400000, guid: 95e4245dee2e77943ab722b65af40d73, type: 2}
-  - {fileID: 11400000, guid: 6901c723248fff345850865d142ee7ed, type: 2}
   requiredUnlocks: []
+  isUnlocked: 1
+  isAppeared: 1
   weight: 0

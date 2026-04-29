@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d071a9968d9b654fa0e0a58d0f56f67, type: 3}
-  m_Name: Chocolate Pet
+  m_Name: Uncommon Pet
   m_EditorClassIdentifier: Assembly-CSharp::pet_scriptable
-  sprite: {fileID: -183961398, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  sprite: {fileID: -1594624602, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
   ingredients:
-  - {fileID: 11400000, guid: 01704696fccbd7d409038cd3cb5ff324, type: 2}
-  - {fileID: 11400000, guid: 3b5f4d8da14d3c848b249216b13d691b, type: 2}
-  - {fileID: 11400000, guid: 6f2c58ec67efef14297f4b48c040e34c, type: 2}
-  cost: 15
-  maxLevel: 3
+  - {fileID: 11400000, guid: f11c6cb8f088c7f439b9c8b443c53789, type: 2}
+  - {fileID: 11400000, guid: 60272e79c866a394683bfeae2ec42a25, type: 2}
+  - {fileID: 11400000, guid: 61a7a8d9b4098d0409e28751352f4c2b, type: 2}
+  cost: 10
+  maxLevel: 2
   level: 1
   isUnlocked: 1
   clickCount: 5

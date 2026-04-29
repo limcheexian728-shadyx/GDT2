@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::recipe_scriptable
   recipeName: Cherry Cake
   ingredients: 0000000002000000
-  price: 10
+  price: 15
