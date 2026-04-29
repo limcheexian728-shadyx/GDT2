@@ -8,7 +8,7 @@ public class storage_script : MonoBehaviour
     [SerializeField] bool reset = false;
 
     [Header("Currency")]
-    int coins;
+    public int coins;
 
     [Header("Resources")]
     [SerializeField] int gain = 1;
@@ -18,12 +18,13 @@ public class storage_script : MonoBehaviour
     [Header("Pet Handling")]
     [SerializeField] GameObject petPrefab;
     [SerializeField] Transform petContainer;
-    [SerializeField] List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
+    public List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
     List<petControl_script> petObjects = new List<petControl_script>();
 
     private void Awake()
     {
         instance = this;
+
         if (reset) 
         { 
             for (int i = 0; i < storageIngredients.Length; i++) 
@@ -31,7 +32,12 @@ public class storage_script : MonoBehaviour
                 storageIngredients[i].Reset();
             } 
         }
+        UpdateUI();
+    }
 
+    public void Refresh()
+    {
+        foreach (Transform pet in petContainer) { Destroy(pet.gameObject); }
         foreach (pet_scriptable pet in unlockedPets)
         {
             GameObject newPet = Instantiate(petPrefab, petContainer.position, Quaternion.identity, petContainer);
@@ -39,7 +45,6 @@ public class storage_script : MonoBehaviour
             newPetControl.SetPet(pet);
             petObjects.Add(newPetControl);
         }
-        UpdateUI();
     }
 
     // Handling Currency

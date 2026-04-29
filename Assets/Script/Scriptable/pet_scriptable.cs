@@ -6,15 +6,19 @@ public class pet_scriptable : ScriptableObject
 {
     public Sprite sprite;
 
-    [SerializeField] private List<ingredient_scriptable> ingredients;
+    [SerializeField] List<ingredient_scriptable> ingredients;
     [SerializeField] int cost = 10;
     [SerializeField] int maxLevel= 5;
-    [SerializeField] private int level = 1;
-    [SerializeField] private bool isUnlocked;
+    [SerializeField] int level = 1;
+    [SerializeField] bool isUnlocked;
+    [SerializeField] int clickCount = 5;
 
     public bool IsUnlocked() { return isUnlocked; }
     public int GetLevel() {  return level; }
     public List<ingredient_scriptable> GetIngredients() { return ingredients; }
+    public bool IsMaxLevel() {  return maxLevel == level; }
+    public int GetCost() {  return cost; }
+    public int GetClickCount() {  return clickCount; }
 
     public void LevelUp()
     {
@@ -23,7 +27,4 @@ public class pet_scriptable : ScriptableObject
             level = maxLevel;
     }
 
-    public bool IsMaxLevel() {  return maxLevel == level; }
-
-    public int GetCost() {  return cost; }
 }

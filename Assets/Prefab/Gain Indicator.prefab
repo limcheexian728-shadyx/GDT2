@@ -132,3 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1c37d0ea23a74cb4cf07fdb054888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::indicator_script
+  yForce: 3
+  xVariation: 3

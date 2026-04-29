@@ -7,7 +7,8 @@ public class petControl_script : MonoBehaviour
     [SerializeField] GameObject Indicator;
 
     float cooldown = 2;
-    float currentCooldown;
+    float currentCooldown = 0;
+    int currentClickCount;
     SpriteRenderer sprite;
     Vector3 move_direction;
 
@@ -25,6 +26,16 @@ public class petControl_script : MonoBehaviour
     public void ActivatePet(int amt)
     {
         // May make it next time to have a loading bar so that clicks turn into progression to gain the resource
+        currentClickCount++;
+        if (currentClickCount == petData.GetClickCount())
+        {
+            GainResource(amt);
+            currentClickCount = 0;
+        } 
+    }
+
+    public void GainResource(int amt)
+    {
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);
