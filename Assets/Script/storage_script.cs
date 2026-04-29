@@ -5,16 +5,21 @@ using UnityEngine;
 public class storage_script : MonoBehaviour
 {
     public static storage_script instance;
-    [SerializeField] private bool reset = false;
+    [SerializeField] bool reset = false;
 
     [Header("Currency")]
-    private int coins;
+    int coins;
 
     [Header("Resources")]
-    [SerializeField] private int gain = 1;
+    [SerializeField] int gain = 1;
     [SerializeField] ingredient_scriptable[] storageIngredients;
-    [SerializeField] List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
     [SerializeField] TMP_Text[] ui_texts;
+
+    [Header("Pet Handling")]
+    [SerializeField] GameObject petPrefab;
+    [SerializeField] Transform petContainer;
+    [SerializeField] List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
+    List<petControl_script> petObjects;
 
     private void Awake()
     {
@@ -25,6 +30,14 @@ public class storage_script : MonoBehaviour
             { 
                 storageIngredients[i].Reset();
             } 
+        }
+
+        foreach (pet_scriptable pet in unlockedPets)
+        {
+            GameObject newPet = Instantiate(petPrefab, petContainer.position, Quaternion.identity, petContainer);
+            petControl_script newPetControl = newPet.GetComponent<petControl_script>();
+            newPetControl.SetPet(pet);
+            petObjects.Add(newPetControl);
         }
         UpdateUI();
     }
@@ -59,7 +72,7 @@ public class storage_script : MonoBehaviour
     }
     public void Clicked()
     {
-        foreach (pet_scriptable pet in unlockedPets)
+        foreach (petControl_script pet in petObjects)
         {
             pet.ActivatePet(gain);
         }

@@ -10,7 +10,7 @@ public class customerControl_script : MonoBehaviour
 
     SpriteRenderer sprite;
 
-    void Start()
+    void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
@@ -28,21 +28,4 @@ public class customerControl_script : MonoBehaviour
     }
 
     public customer_scriptable GetCustomerData() { return customerData; }
-
-    public void Move()
-    {
-        targetPosition += direction * distance;
-    }
-
-    public void Served(bool correctOrder)
-    {
-        if (correctOrder)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
 }

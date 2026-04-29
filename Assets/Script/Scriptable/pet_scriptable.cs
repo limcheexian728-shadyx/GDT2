@@ -7,25 +7,18 @@ public class pet_scriptable : ScriptableObject
     public Sprite sprite;
 
     [SerializeField] private List<ingredient_scriptable> ingredients;
-    [SerializeField] private List<customer_scriptable> unlockableCustomer;
     [SerializeField] int cost = 10;
     [SerializeField] int maxLevel= 5;
+    [SerializeField] private int level = 1;
     [SerializeField] private bool isUnlocked;
-    private int level;
 
     public void ActivatePet(int amt)
     {
-        for (int i = 0; i < amt; i++)
+        for (int i = 0; i < level; i++)
         {
             int selection = Random.Range(0, ingredients.Count);
-            ingredients[selection].Add(level);
+            ingredients[selection].Add(amt);
         }
-    }
-
-    public void AddCustomer(customer_scriptable customer)
-    {
-        if (!unlockableCustomer.Contains(customer))
-            unlockableCustomer.Add(customer);
     }
 
     public bool IsUnlocked() { return isUnlocked; }

@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "customer_scriptable", menuName = "Scriptable Objects/customer_scriptable")]
@@ -11,19 +11,11 @@ public class customer_scriptable : ScriptableObject
     [SerializeField] private List<recipe_scriptable> possibleOrders;
     // Unlocked
     [SerializeField] private List<pet_scriptable> requiredUnlocks;
-    private bool isUnlocked;
+    [SerializeField] private bool isUnlocked;
     // Has Appeared
-    private bool isAppeared;
+    [SerializeField] private bool isAppeared;
     // Rarity (Weight: higher = higher chance to get spawned)
     [SerializeField] private float weight;
-
-    public void SetPets()
-    {
-        for (int i = 0; i < requiredUnlocks.Count; i++)
-        {
-            requiredUnlocks[i].AddCustomer(this);
-        }
-    }
 
     public bool CheckState(List<pet_scriptable> unlockedList)
     {
