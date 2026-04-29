@@ -12,16 +12,9 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] private int level = 1;
     [SerializeField] private bool isUnlocked;
 
-    public void ActivatePet(int amt)
-    {
-        for (int i = 0; i < level; i++)
-        {
-            int selection = Random.Range(0, ingredients.Count);
-            ingredients[selection].Add(amt);
-        }
-    }
-
     public bool IsUnlocked() { return isUnlocked; }
+    public int GetLevel() {  return level; }
+    public List<ingredient_scriptable> GetIngredients() { return ingredients; }
 
     public void LevelUp()
     {

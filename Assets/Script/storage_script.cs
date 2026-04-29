@@ -19,7 +19,7 @@ public class storage_script : MonoBehaviour
     [SerializeField] GameObject petPrefab;
     [SerializeField] Transform petContainer;
     [SerializeField] List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
-    List<petControl_script> petObjects;
+    List<petControl_script> petObjects = new List<petControl_script>();
 
     private void Awake()
     {

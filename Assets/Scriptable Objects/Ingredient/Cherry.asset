@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98163185e56c9204c90bee62c5503880, type: 3}
   m_Name: Cherry
   m_EditorClassIdentifier: Assembly-CSharp::ingredient_scriptable
+  sprite: {fileID: 1354186918, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
   type: 2
-  amount: 0
+  amount: 100

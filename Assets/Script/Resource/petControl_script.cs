@@ -1,4 +1,5 @@
 using UnityEngine;
+using static ingredient_scriptable;
 
 public class petControl_script : MonoBehaviour
 {
@@ -23,7 +24,16 @@ public class petControl_script : MonoBehaviour
 
     public void ActivatePet(int amt)
     {
-        petData.ActivatePet(amt);
+        // May make it next time to have a loading bar so that clicks turn into progression to gain the resource
+        for (int i = 0; i < petData.GetLevel(); i++)
+        {
+            int selection = Random.Range(0, petData.GetIngredients().Count);
+            ingredient_scriptable ingredient = petData.GetIngredients()[selection];
+            ingredient.Add(amt);
+            Instantiate(Indicator, transform.position, Quaternion.identity)
+                .GetComponent<indicator_script>()
+                .SetUpIndicator(ingredient.sprite, transform.position.y);
+        }
     }
 
     void Update()

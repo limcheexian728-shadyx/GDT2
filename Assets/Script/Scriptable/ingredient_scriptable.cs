@@ -6,6 +6,7 @@ public class ingredient_scriptable : ScriptableObject
 {
     public enum ingredients { baseCake, strawberry, cherry, darkChocolate, milkChocolate, whiteChocolate };
 
+    public Sprite sprite;
     [SerializeField] private ingredients type;
     [SerializeField] private int amount = 0;
 
