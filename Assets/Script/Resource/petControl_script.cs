@@ -41,9 +41,12 @@ public class petControl_script : MonoBehaviour
             int selection = Random.Range(0, petData.GetIngredients().Count);
             ingredient_scriptable ingredient = petData.GetIngredients()[selection];
             ingredient.Add(amt);
-            Instantiate(Indicator, transform.position, Quaternion.identity)
-                .GetComponent<indicator_script>()
-                .SetUpIndicator(ingredient.sprite, transform.position.y);
+            if (Indicator != null)
+            {
+                Instantiate(Indicator, transform.position, Quaternion.identity)
+                    .GetComponent<indicator_script>()
+                    .SetUpIndicator(ingredient.sprite, transform.position.y);
+            }
         }
     }
 

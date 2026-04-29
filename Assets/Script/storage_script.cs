@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class storage_script : MonoBehaviour
 {
@@ -37,7 +38,14 @@ public class storage_script : MonoBehaviour
 
     public void Refresh()
     {
-        foreach (Transform pet in petContainer) { Destroy(pet.gameObject); }
+        print("Destroying ");
+        foreach (Transform pet in petContainer)
+        {
+            print("Destroying " + pet.name);
+            Destroy(pet.gameObject);
+        }
+
+        petObjects.Clear();
         foreach (pet_scriptable pet in unlockedPets)
         {
             GameObject newPet = Instantiate(petPrefab, petContainer.position, Quaternion.identity, petContainer);

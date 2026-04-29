@@ -4316,7 +4316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8997a120d11c6fa4bad63eb159272eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::storage
-  reset: 0
+  reset: 1
   coins: 0
   gain: 1
   storageIngredients:

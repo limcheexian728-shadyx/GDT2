@@ -23,5 +23,5 @@ MonoBehaviour:
   cost: 10000
   maxLevel: 25
   level: 25
-  isUnlocked: 1
+  isUnlocked: 0
   clickCount: 1

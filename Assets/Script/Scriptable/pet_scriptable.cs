@@ -14,6 +14,7 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] int clickCount = 5;
 
     public bool IsUnlocked() { return isUnlocked; }
+    public void Unlock() {  isUnlocked = true; }
     public int GetLevel() {  return level; }
     public List<ingredient_scriptable> GetIngredients() { return ingredients; }
     public bool IsMaxLevel() {  return maxLevel == level; }

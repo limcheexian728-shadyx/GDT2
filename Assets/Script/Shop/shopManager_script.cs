@@ -36,6 +36,7 @@ public class shopManager_script : MonoBehaviour
     public void Refresh()
     {
         locked_pets = new List<pet_scriptable>();
+        unlocked_pets = new List<pet_scriptable>();
 
         foreach (Transform child in shopContainer)
         {
@@ -62,5 +63,14 @@ public class shopManager_script : MonoBehaviour
 
         storage_script.instance.unlockedPets = unlocked_pets;
         storage_script.instance.Refresh();
+    }
+
+    public void Buy(int index)
+    {
+        if (storage_script.instance.Spend(locked_pets[index].GetCost()))
+        {
+            locked_pets[index].Unlock();
+            Refresh();
+        }
     }
 }
