@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: -1712442235, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
   ingredients:
   - {fileID: 11400000, guid: 6f2c58ec67efef14297f4b48c040e34c, type: 2}
-  cost: 5000
+  cost: 500
   maxLevel: 15
   level: 1
   isUnlocked: 0

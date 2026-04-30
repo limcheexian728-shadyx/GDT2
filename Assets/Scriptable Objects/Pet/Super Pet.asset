@@ -20,8 +20,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b5f4d8da14d3c848b249216b13d691b, type: 2}
   - {fileID: 11400000, guid: 01704696fccbd7d409038cd3cb5ff324, type: 2}
   - {fileID: 11400000, guid: 60272e79c866a394683bfeae2ec42a25, type: 2}
-  cost: 10000
+  cost: 0
   maxLevel: 25
   level: 25
-  isUnlocked: 0
+  isUnlocked: 1
   clickCount: 1

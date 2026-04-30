@@ -93,7 +93,11 @@ public class storage_script : MonoBehaviour
     }
     void UpdateUI()
     {
-        for (int i = 0;i < storageIngredients.Length; i++)
-            ui_texts[i].SetText(storageIngredients[i].GetAmount().ToString());
+        for (int i = 0; i < storageIngredients.Length; i++)
+        {
+            string amount = storageIngredients[i].GetAmount().ToString();
+            ui_texts[i].SetText(amount);
+            ui_texts[i + 6].SetText(amount);
+        }
     }
 }

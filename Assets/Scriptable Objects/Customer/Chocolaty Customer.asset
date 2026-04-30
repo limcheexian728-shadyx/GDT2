@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
-  m_Name: Basic Customer 2
+  m_Name: Chocolaty Customer
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: -619132407, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  customerSprite: {fileID: 0}
   possibleOrders:
-  - {fileID: 11400000, guid: 6901c723248fff345850865d142ee7ed, type: 2}
-  - {fileID: 11400000, guid: 95e4245dee2e77943ab722b65af40d73, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 2db82c4cca67db142a848e3e5b640804, type: 2}
+  - {fileID: 11400000, guid: 2db82c4cca67db142a848e3e5b640804, type: 2}
+  - {fileID: 11400000, guid: 2db82c4cca67db142a848e3e5b640804, type: 2}
   requiredUnlocks:
-  - {fileID: 11400000, guid: 7e6b7784ab9d15f4eb5cbe420ec1296f, type: 2}
-  isUnlocked: 1
-  isAppeared: 1
+  - {fileID: 11400000, guid: d266b925ea753da4b935ba5d268bb7d8, type: 2}
+  isUnlocked: 0
+  isAppeared: 0
   weight: 0
