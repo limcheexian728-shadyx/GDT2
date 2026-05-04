@@ -17,8 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01704696fccbd7d409038cd3cb5ff324, type: 2}
   - {fileID: 11400000, guid: 3b5f4d8da14d3c848b249216b13d691b, type: 2}
   - {fileID: 11400000, guid: 6f2c58ec67efef14297f4b48c040e34c, type: 2}
-  cost: 15
   maxLevel: 3
   level: 1
-  isUnlocked: 1
-  clickCount: 5
+  clickCount: 6
+  isUnlocked: 0
+  cost: 15
+  hungerThreshold: 0
+  eatCooldown: 0

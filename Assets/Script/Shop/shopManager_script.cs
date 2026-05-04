@@ -63,6 +63,8 @@ public class shopManager_script : MonoBehaviour
 
         storage_script.instance.unlockedPets = unlocked_pets;
         storage_script.instance.Refresh();
+
+        bakeryManager_script.instance.Refresh();
     }
 
     public void Buy(int index)

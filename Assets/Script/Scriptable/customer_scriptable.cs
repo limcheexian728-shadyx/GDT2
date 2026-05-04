@@ -11,7 +11,6 @@ public class customer_scriptable : ScriptableObject
     [SerializeField] private List<recipe_scriptable> possibleOrders;
     // Unlocked
     [SerializeField] private List<pet_scriptable> requiredUnlocks;
-    [SerializeField] private bool isUnlocked;
     // Has Appeared
     [SerializeField] private bool isAppeared;
     // Rarity (Weight: higher = higher chance to get spawned)
@@ -19,15 +18,11 @@ public class customer_scriptable : ScriptableObject
 
     public bool CheckState(List<pet_scriptable> unlockedList)
     {
-        if (isUnlocked)
-            return true;
-
         for (int i = 0; i < requiredUnlocks.Count; i++)
         {
             if (!unlockedList.Contains(requiredUnlocks[i]))
                 return false;
         }
-        isUnlocked = true;
         return true;
     }
 

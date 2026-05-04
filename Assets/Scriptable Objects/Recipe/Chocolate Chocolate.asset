@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chocolate Chocolate
   m_EditorClassIdentifier: Assembly-CSharp::recipe_scriptable
   recipeName: Default
-  ingredients: 000000000300000004000000
+  ingredients: 00000000030000000400000005000000
   price: 25

@@ -10,8 +10,8 @@ public class bakeryManager_script : MonoBehaviour
     [Header("Spawn Customer")]
     [SerializeField] GameObject customerPrefab; // the customer body
     [SerializeField] Transform spawnPoint; // where to spawn the customer
-    [SerializeField] List<customer_scriptable> customers; // potential customers that can be added into the queue
-    [SerializeField] List<customer_scriptable> allCustomers;
+    [SerializeField] List<customer_scriptable> customers;
+    List<customer_scriptable> potentialCustomers = new(); // potential customers that can be added into the queue
 
     [Header("Order Display")]
     [SerializeField] GameObject[] orderDisplay;
@@ -30,6 +30,7 @@ public class bakeryManager_script : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Refresh();
     }
 
     private void Start()
@@ -60,14 +61,16 @@ public class bakeryManager_script : MonoBehaviour
     {
         Remove(); // Clear the order
 
-        // Spawning the customer and setting its value
+        // Spawning the customer
         currentCustomer = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity, spawnPoint).GetComponent<customerControl_script>();
-        int customerIndex = Random.Range(0, customers.Count);
-        while (customerIndex == previousCustomerIndex) { customerIndex = Random.Range(0, customers.Count); }
-        previousCustomerIndex = customerIndex;
-        currentCustomer.SetCustomer(customers[customerIndex]);
 
-        // Getting the data from the customer
+        // Setting the Customer Data
+        int customerIndex = Random.Range(0, potentialCustomers.Count);
+        while (customerIndex == previousCustomerIndex) { customerIndex = Random.Range(0, potentialCustomers.Count); }
+        previousCustomerIndex = customerIndex;
+        currentCustomer.SetCustomer(potentialCustomers[customerIndex]);
+
+        // Getting the order from the customer
         currenCustomerOrder = currentCustomer.GetCustomerData().GetOrder();
         print("Customer orders a " + currenCustomerOrder.GetName());
         List<ingredient_scriptable.ingredients> items = currenCustomerOrder.GetList();
@@ -117,11 +120,24 @@ public class bakeryManager_script : MonoBehaviour
             display = failOrder;
         }
 
-        Instantiate(Indicator, spawnPoint.position, Quaternion.identity)
+        Instantiate(Indicator, currentCustomer.transform.position, Quaternion.identity)
             .GetComponent<indicator_script>()
-            .SetUpIndicator(display, spawnPoint.position.y);
+            .SetUpIndicator(display, currentCustomer.transform.position.y);
 
-        Destroy(currentCustomer.gameObject);
+        currentCustomer.OrderComplete();
         SummonCustomer();
+    }
+
+    public void Refresh()
+    {
+        potentialCustomers.Clear();
+        List<pet_scriptable> unlockedPets = storage_script.instance.unlockedPets;
+        foreach (customer_scriptable customer in customers)
+        {
+            if (customer.CheckState(unlockedPets))
+            {
+                potentialCustomers.Add(customer);
+            }
+        }
     }
 }

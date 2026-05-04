@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static ingredient_scriptable;
 
@@ -6,15 +8,17 @@ public class petControl_script : MonoBehaviour
     [SerializeField] pet_scriptable petData;
     [SerializeField] GameObject Indicator;
 
+    float currentHungerLevel;
     float cooldown = 2;
     float currentCooldown = 0;
-    int currentClickCount;
+    int currentClickCount, amtGain;
     SpriteRenderer sprite;
     Vector3 move_direction;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+
     }
 
     public void SetPet(pet_scriptable pet)
@@ -25,22 +29,24 @@ public class petControl_script : MonoBehaviour
 
     public void ActivatePet(int amt)
     {
+        amtGain = amt;
+
         // May make it next time to have a loading bar so that clicks turn into progression to gain the resource
         currentClickCount++;
         if (currentClickCount == petData.GetClickCount())
         {
-            GainResource(amt);
+            GainResource();
             currentClickCount = 0;
         } 
     }
 
-    public void GainResource(int amt)
+    public void GainResource()
     {
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);
             ingredient_scriptable ingredient = petData.GetIngredients()[selection];
-            ingredient.Add(amt);
+            ingredient.Add(amtGain);
             if (Indicator != null)
             {
                 Instantiate(Indicator, transform.position, Quaternion.identity)
@@ -52,17 +58,8 @@ public class petControl_script : MonoBehaviour
 
     void Update()
     {
-        // Moving the pet
-        transform.Translate(move_direction);
-        CheckPosition();
-
-        // Cooldown handling
-        currentCooldown -= Time.deltaTime;
-        if (currentCooldown > 0) { return; }
-        
-        // Changing the direction of the pet
-        move_direction = 0.5f * Time.deltaTime * GetRandomDirection();
-        currentCooldown = cooldown;
+        Movement();
+        DirectionHandling();
     }
 
     Vector3 GetRandomDirection()
@@ -71,14 +68,31 @@ public class petControl_script : MonoBehaviour
         float new_y = Random.Range(-1, 1.1f);
         return new Vector3(new_x, new_y, 0);
     }
-
-    void CheckPosition()
+    void DirectionHandling()
     {
+        // Cooldown handling
+        currentCooldown -= Time.deltaTime;
+        if (currentCooldown > 0) { return; }
+
+        // Changing the direction of the pet
+        move_direction = 0.5f * Time.deltaTime * GetRandomDirection();
+        currentCooldown = cooldown;
+    }
+    void Movement()
+    {
+        transform.Translate(move_direction);
+
+        // Checking Position
         if (transform.position.x > -7 && transform.position.x < -3
-            && transform.position.y > -3 && transform.position.y < 4) 
+            && transform.position.y > -3 && transform.position.y < 2.8f) 
             return;
 
         transform.Translate(-move_direction);
         move_direction *= -1;
+    }
+
+    IEnumerator EatCycle()
+    {
+        yield return new WaitForSeconds(petData.GetEatCooldown());
     }
 }

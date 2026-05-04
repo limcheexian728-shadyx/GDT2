@@ -4,23 +4,29 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "pet_scriptable", menuName = "Scriptable Objects/pet_scriptable")]
 public class pet_scriptable : ScriptableObject
 {
+    [Header("Basics")]
     public Sprite sprite;
-
     [SerializeField] List<ingredient_scriptable> ingredients;
-    [SerializeField] int cost = 10;
+    [Header("Resource")]
     [SerializeField] int maxLevel= 5;
     [SerializeField] int level = 1;
-    [SerializeField] bool isUnlocked;
     [SerializeField] int clickCount = 5;
+    [Header("Shop Value")]
+    [SerializeField] bool isUnlocked;
+    [SerializeField] int cost = 10;
+    [Header("Hunger")]
+    [SerializeField] float hungerThreshold;
+    [SerializeField] float eatCooldown= 0.5f;
 
-    public bool IsUnlocked() { return isUnlocked; }
-    public void Unlock() {  isUnlocked = true; }
-    public int GetLevel() {  return level; }
-    public List<ingredient_scriptable> GetIngredients() { return ingredients; }
-    public bool IsMaxLevel() {  return maxLevel == level; }
     public int GetCost() {  return cost; }
     public int GetClickCount() {  return clickCount; }
+    public int GetLevel() {  return level; }
+    public float GetHungerThres() {  return hungerThreshold; }
+    public float GetEatCooldown() {  return eatCooldown; }
+    public bool IsUnlocked() { return isUnlocked; }
+    public List<ingredient_scriptable> GetIngredients() { return ingredients; }
 
+    public void Unlock() {  isUnlocked = true; }
     public void LevelUp()
     {
         level += 1;

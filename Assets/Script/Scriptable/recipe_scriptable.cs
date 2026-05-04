@@ -5,11 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "recipe_scriptable", menuName = "Scriptable Objects/recipe_scriptable")]
 public class recipe_scriptable : ScriptableObject
 {
-    [SerializeField] private string recipeName = "Default";
     [SerializeField] private List<ingredient_scriptable.ingredients> ingredients;
     [SerializeField] private int price = 10;
 
-    public string GetName() { return recipeName; }
+    public string GetName() { return name; }
     public int GetPrice() { return price; }
 
     public List<ingredient_scriptable.ingredients> GetList() { return ingredients; }
