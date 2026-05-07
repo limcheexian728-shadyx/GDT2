@@ -11,9 +11,11 @@ public class resourceManager_script : MonoBehaviour
     public int coins;
 
     [Header("Resources")]
-    [SerializeField] int gain = 1;
+    [SerializeField] int foodGain = 10;
+    [SerializeField] TMP_Text currentFoodCountText;
     [SerializeField] ingredient_scriptable[] storageIngredients;
     [SerializeField] TMP_Text[] ui_texts;
+    int currentFoodCount;
 
     [Header("Pet Handling")]
     [SerializeField] GameObject petPrefab;
@@ -159,14 +161,20 @@ public class resourceManager_script : MonoBehaviour
     }
     public void Clicked()
     {
-        foreach (petControl_script pet in petObjects)
-        {
-            pet.ActivatePet(gain);
-        }
+        currentFoodCount += foodGain;
         UpdateUI();
     }
-    void UpdateUI()
+    public bool EatFood(int amount)
     {
+        if (currentFoodCount <= amount) return false;
+
+        print("Food Eaten");
+        currentFoodCount -= amount;
+        return true;
+    }
+    public void UpdateUI()
+    {
+        currentFoodCountText.text = "Fud lef: " + currentFoodCount.ToString();
         for (int i = 0; i < storageIngredients.Length; i++)
         {
             string amount = storageIngredients[i].GetAmount().ToString();

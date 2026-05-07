@@ -23,8 +23,8 @@ MonoBehaviour:
   maxLevel: 25
   level: 25
   clickCount: 1
-  isUnlocked: 1
-  isEquiped: 1
+  isUnlocked: 0
+  isEquiped: 0
   cost: 0
-  hungerThreshold: 0
-  eatCooldown: 0
+  consumeAmount: 2
+  eatCooldown: 0.5
