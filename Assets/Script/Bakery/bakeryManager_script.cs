@@ -8,7 +8,7 @@ public class bakeryManager_script : MonoBehaviour
     public static bakeryManager_script instance;
 
     [Header("Spawn Customer")]
-    [SerializeField] GameObject customerPrefab; // the customer body
+    [SerializeField] customerControl_script customerPrefab; // the customer body
     [SerializeField] Transform spawnPoint; // where to spawn the customer
     [SerializeField] List<customer_scriptable> customers;
     List<customer_scriptable> potentialCustomers = new(); // potential customers that can be added into the queue
@@ -62,7 +62,7 @@ public class bakeryManager_script : MonoBehaviour
         Remove(); // Clear the order
 
         // Spawning the customer
-        currentCustomer = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity, spawnPoint).GetComponent<customerControl_script>();
+        currentCustomer = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
 
         // Setting the Customer Data
         int customerIndex = Random.Range(0, potentialCustomers.Count);
@@ -72,7 +72,6 @@ public class bakeryManager_script : MonoBehaviour
 
         // Getting the order from the customer
         currenCustomerOrder = currentCustomer.GetCustomerData().GetOrder();
-        print("Customer orders a " + currenCustomerOrder.GetName());
         List<ingredient_scriptable.ingredients> items = currenCustomerOrder.GetList();
         foreach (GameObject item in orderDisplay) { item.SetActive(false); }
         if (items.Contains(ingredient_scriptable.ingredients.baseCake)) orderDisplay[0].SetActive(true);
@@ -96,7 +95,7 @@ public class bakeryManager_script : MonoBehaviour
         }
 
         // Checks if the storage has enough of the item
-        if (!ingredientsSelected.Contains(item) && storage_script.instance.GetItem(item))
+        if (!ingredientsSelected.Contains(item) && resourceManager_script.instance.GetItem(item))
         {
             // Adding the ingredient into the selection to check with order later
             ingredientsSelected.Add(item);
@@ -107,10 +106,12 @@ public class bakeryManager_script : MonoBehaviour
 
     public void Serve()
     {
+        if (ingredientsSelected.Count == 0) return;
+
         Sprite display;
         if (currenCustomerOrder.CheckRecipe(ingredientsSelected))
         {
-            storage_script.instance.GainCoin(currenCustomerOrder.GetPrice());
+            resourceManager_script.instance.GainCoin(currenCustomerOrder.GetPrice());
             // Customer happy
             display = successOrder;
         }
@@ -131,7 +132,7 @@ public class bakeryManager_script : MonoBehaviour
     public void Refresh()
     {
         potentialCustomers.Clear();
-        List<pet_scriptable> unlockedPets = storage_script.instance.unlockedPets;
+        List<pet_scriptable> unlockedPets = resourceManager_script.instance.unlockedPets;
         foreach (customer_scriptable customer in customers)
         {
             if (customer.CheckState(unlockedPets))

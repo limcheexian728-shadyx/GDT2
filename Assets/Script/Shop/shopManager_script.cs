@@ -30,7 +30,7 @@ public class shopManager_script : MonoBehaviour
 
     public void SetCoinDisplay()
     {
-        currencyDisplay.text = storage_script.instance.coins.ToString();
+        currencyDisplay.text = resourceManager_script.instance.coins.ToString();
     }
 
     public void Refresh()
@@ -61,15 +61,15 @@ public class shopManager_script : MonoBehaviour
             }
         }
 
-        storage_script.instance.unlockedPets = unlocked_pets;
-        storage_script.instance.Refresh();
+        resourceManager_script.instance.unlockedPets = unlocked_pets;
+        resourceManager_script.instance.Refresh();
 
         bakeryManager_script.instance.Refresh();
     }
 
     public void Buy(int index)
     {
-        if (storage_script.instance.Spend(locked_pets[index].GetCost()))
+        if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
             locked_pets[index].Unlock();
             Refresh();

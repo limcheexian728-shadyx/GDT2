@@ -13,6 +13,7 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] int clickCount = 5;
     [Header("Shop Value")]
     [SerializeField] bool isUnlocked;
+    [SerializeField] bool isEquiped;
     [SerializeField] int cost = 10;
     [Header("Hunger")]
     [SerializeField] float hungerThreshold;
@@ -24,9 +25,11 @@ public class pet_scriptable : ScriptableObject
     public float GetHungerThres() {  return hungerThreshold; }
     public float GetEatCooldown() {  return eatCooldown; }
     public bool IsUnlocked() { return isUnlocked; }
+    public bool IsEquiped() { return isEquiped; }
     public List<ingredient_scriptable> GetIngredients() { return ingredients; }
 
     public void Unlock() {  isUnlocked = true; }
+    public void SetEquip(bool state) { isEquiped = state; }
     public void LevelUp()
     {
         level += 1;
