@@ -19,4 +19,4 @@ MonoBehaviour:
   requiredUnlocks:
   - {fileID: 11400000, guid: c1492abda3b436c4e90cda392ce92937, type: 2}
   isAppeared: 0
-  weight: 0
+  weight: 4

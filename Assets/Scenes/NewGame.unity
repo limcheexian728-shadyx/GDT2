@@ -1294,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 245785379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5842,18 +5842,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1056578983}
-        m_TargetAssemblyTypeName: shopManager_script, Assembly-CSharp
-        m_MethodName: Refresh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &973260184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6528,7 +6516,6 @@ MonoBehaviour:
   petContainer: {fileID: 423327539}
   unlockedPets: []
   availableSlots: 3
-  equipedPets: []
   equipPrefab: {fileID: 7580644766031889878, guid: 8c7070b95e49e2e498851bd1e140b21e, type: 3}
   equipTab: {fileID: 125196045}
   equipContainer: {fileID: 806679794}
@@ -6574,6 +6561,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a6f733f7a42b804487ecfbd4fa34b5d, type: 2}
   - {fileID: 11400000, guid: 9ba29b9bfdc3d054b87d0d6a3a7c0b11, type: 2}
   - {fileID: 11400000, guid: 9bc1030cd65f5a04fa910503c6f0263b, type: 2}
+  - {fileID: 11400000, guid: 8e68c4afe1bafd3419371c72b1cb6334, type: 2}
   orderDisplay:
   - {fileID: 2006836805}
   - {fileID: 1856517092}

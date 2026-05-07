@@ -18,18 +18,19 @@ public class resourceManager_script : MonoBehaviour
     [Header("Pet Handling")]
     [SerializeField] GameObject petPrefab;
     [SerializeField] Transform petContainer;
-    public List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
+
+    [HideInInspector] public List<pet_scriptable> unlockedPets = new List<pet_scriptable>();
 
     List<petControl_script> petObjects = new List<petControl_script>();
 
 
     [Header("Equip Handling")]
     public int availableSlots = 3;
-    [SerializeField] List<pet_scriptable> equipedPets = new List<pet_scriptable>();
     [SerializeField] equip_script equipPrefab;
     [SerializeField] Transform equipTab, equipContainer;
     [SerializeField] float tabSpeed = 5;
 
+    List<pet_scriptable> equipedPets = new List<pet_scriptable>();
     int equipPage = 0;
 
     private void Awake()

@@ -14,7 +14,7 @@ public class customer_scriptable : ScriptableObject
     // Has Appeared
     [SerializeField] private bool isAppeared;
     // Rarity (Weight: higher = higher chance to get spawned)
-    [SerializeField] private float weight;
+    [SerializeField] private int weight = 1;
 
     public bool CheckState(List<pet_scriptable> unlockedList)
     {
@@ -27,6 +27,7 @@ public class customer_scriptable : ScriptableObject
     }
 
     public bool GetAppeared() {  return isAppeared; }
+    public int getWeight() { return weight; }
 
     public recipe_scriptable GetOrder()
     {

@@ -137,7 +137,8 @@ public class bakeryManager_script : MonoBehaviour
         {
             if (customer.CheckState(unlockedPets))
             {
-                potentialCustomers.Add(customer);
+                for (int i = 0; i < customer.getWeight(); i++)
+                    potentialCustomers.Add(customer);
             }
         }
     }

@@ -21,6 +21,7 @@ MonoBehaviour:
   level: 1
   clickCount: 6
   isUnlocked: 0
+  isEquiped: 1
   cost: 15
   hungerThreshold: 0
   eatCooldown: 0
