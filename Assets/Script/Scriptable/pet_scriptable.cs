@@ -17,7 +17,7 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] int cost = 10;
     [Header("Hunger")]
     [SerializeField] float hungerThreshold;
-    [SerializeField] float eatCooldown= 0.5f;
+    [SerializeField] float eatCooldown = 0.5f;
 
     public int GetCost() {  return cost; }
     public int GetClickCount() {  return clickCount; }

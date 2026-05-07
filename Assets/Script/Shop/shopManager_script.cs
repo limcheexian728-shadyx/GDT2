@@ -72,6 +72,7 @@ public class shopManager_script : MonoBehaviour
         if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
             locked_pets[index].Unlock();
+            locked_pets[index].SetEquip(false);
             Refresh();
         }
     }
