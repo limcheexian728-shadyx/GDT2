@@ -57,7 +57,7 @@ public class bakeryManager_script : MonoBehaviour
     {
         // Remove all display
         if (currentCreateDisplay != null) Destroy(currentCreateDisplay.gameObject);
-        currentCreateDisplay = Instantiate(createDisplayPrefab, creationPosition.position, Quaternion.identity);
+        currentCreateDisplay = Instantiate(createDisplayPrefab, creationPosition.position, Quaternion.identity, creationPosition);
         // Clear the ingredient selected for a new hand
         ingredientsSelected.Clear();
     }
