@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
   m_Name: Buff Miaw
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: 2622846314118631884, guid: b48c629b93e9cb34d97df5246b54d36f, type: 3}
+  customerSprite: {fileID: 1326563076241181205, guid: 629de3d35f5d35140bc2db714ecd0737, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: 877a4924d1b2db64fbec7546a208a402, type: 2}
   requiredUnlocks:
-  - {fileID: 11400000, guid: 2dfac36aa60513946a0481740634567d, type: 2}
+  - {fileID: 11400000, guid: f21b6e5ab93905944940cec78625caad, type: 2}
   isAppeared: 0
-  weight: 0
+  weight: 1

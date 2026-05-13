@@ -13,7 +13,7 @@ public class shopManager_script : MonoBehaviour
     List<pet_scriptable> unlocked_pets = new List<pet_scriptable>();
 
     [Header("Shop Diplay")]
-    [SerializeField] TMP_Text currencyDisplay;
+    [SerializeField] TMP_Text[] currencyDisplay;
     [SerializeField] GameObject shopItemPrefab;
     [SerializeField] Transform shopContainer;
 
@@ -26,11 +26,15 @@ public class shopManager_script : MonoBehaviour
 
     public void SetCoinDisplay()
     {
-        currencyDisplay.text = resourceManager_script.instance.coins.ToString();
+        foreach (TMP_Text currentText in currencyDisplay)
+        {
+            currentText.text = resourceManager_script.instance.coins.ToString();
+        }
     }
 
     public void Refresh()
     {
+        SetCoinDisplay();
         locked_pets = new List<pet_scriptable>();
         unlocked_pets = new List<pet_scriptable>();
 
@@ -66,16 +70,17 @@ public class shopManager_script : MonoBehaviour
 
     public void Buy(int index)
     {
-        if (index == -1 && resourceManager_script.instance.Spend(100))
+        if (index == -1)
         {
-            resourceManager_script.instance.BuyPetSpace();
-            return;
-        }
-        if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
+            if (resourceManager_script.instance.Spend(100))
+            {
+                resourceManager_script.instance.BuyPetSpace();
+            }
+        }else if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
             locked_pets[index].Unlock();
             locked_pets[index].SetEquip(false);
-            Refresh();
         }
+        Refresh();
     }
 }

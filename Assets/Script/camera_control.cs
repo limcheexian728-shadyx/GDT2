@@ -4,6 +4,7 @@ public class camera_control : MonoBehaviour
 {
 
     [SerializeField] private float camTravelSpeed = 5;
+    [SerializeField] Transform Overlay;
 
     [Header("Screens")]
     [SerializeField] private int startScreen = 2;
@@ -19,6 +20,7 @@ public class camera_control : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition, camTravelSpeed * Time.deltaTime);
+        Overlay.position = transform.position + Vector3.forward;
     }
 
     public void SwitchScreen(int newScreen)

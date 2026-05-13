@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EVERYTHING
   m_EditorClassIdentifier: Assembly-CSharp::recipe_scriptable
   ingredients: 000000000100000002000000030000000400000005000000
-  price: 50
+  price: 200

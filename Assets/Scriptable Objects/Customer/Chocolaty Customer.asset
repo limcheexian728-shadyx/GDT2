@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
   m_Name: Chocolaty Customer
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: 203869047, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  customerSprite: {fileID: 513118586806167360, guid: 629de3d35f5d35140bc2db714ecd0737, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: 47ccabcde564f00459ccb0267289c873, type: 2}
   - {fileID: 11400000, guid: bf8edcae685e61f42a794b5e3138d5ba, type: 2}
   - {fileID: 11400000, guid: 8624ec4b2194a46499282afea10a15aa, type: 2}
   - {fileID: 11400000, guid: 2db82c4cca67db142a848e3e5b640804, type: 2}
+  - {fileID: 11400000, guid: c941fd216e32e6642b037892429872e7, type: 2}
   requiredUnlocks:
   - {fileID: 11400000, guid: d266b925ea753da4b935ba5d268bb7d8, type: 2}
   isAppeared: 0

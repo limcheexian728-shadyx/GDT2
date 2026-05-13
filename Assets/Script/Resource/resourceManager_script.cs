@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using TMPro;
 using UnityEngine;
+using static ingredient_scriptable;
 
 public class resourceManager_script : MonoBehaviour
 {
@@ -147,7 +149,7 @@ public class resourceManager_script : MonoBehaviour
     }
 
     // Handling Resources
-    public bool GetItem(ingredient_scriptable.ingredients item)
+    public bool GetItem(ingredients item)
     {
         for (int i = 0; i < storageIngredients.Length; i++)
         {
@@ -184,5 +186,15 @@ public class resourceManager_script : MonoBehaviour
             ui_texts[i].SetText(amount);
             ui_texts[i + 6].SetText(amount);
         }
+    }
+
+    public ingredient_scriptable Convert(ingredients input)
+    {
+        if (input == ingredients.strawberry) return storageIngredients[1];
+        if (input == ingredients.cherry) return storageIngredients[2];
+        if (input == ingredients.whiteChocolate) return storageIngredients[3];
+        if (input == ingredients.milkChocolate) return storageIngredients[4];
+        if (input == ingredients.darkChocolate) return storageIngredients[5];
+        return storageIngredients[0];
     }
 }
