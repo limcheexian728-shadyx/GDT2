@@ -30,7 +30,6 @@ public class resourceManager_script : MonoBehaviour
     public int availableSlots = 3;
     [SerializeField] equip_script equipPrefab;
     [SerializeField] Transform equipTab, equipContainer;
-    [SerializeField] float tabSpeed = 5;
 
     List<pet_scriptable> equipedPets = new List<pet_scriptable>();
     int equipPage = 0;
@@ -130,6 +129,10 @@ public class resourceManager_script : MonoBehaviour
         else if (equipPage != 0)
             equipPage--;
         RefreshEquipPage();
+    }
+    public void BuyPetSpace()
+    {
+        availableSlots++;
     }
 
     // Handling Currency

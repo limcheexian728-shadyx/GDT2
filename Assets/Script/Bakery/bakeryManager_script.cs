@@ -15,16 +15,20 @@ public class bakeryManager_script : MonoBehaviour
 
     [Header("Order Display")]
     [SerializeField] GameObject[] orderDisplay;
-    [SerializeField] GameObject[] createDisplay;
     [SerializeField] GameObject Indicator;
     [SerializeField] Sprite successOrder;
     [SerializeField] Sprite failOrder;
+
+    [Header("Creation Display")]
+    [SerializeField] creationShow_script createDisplayPrefab;
+    [SerializeField] Transform creationPosition;
     [SerializeField] Sprite trash;
+    creationShow_script currentCreateDisplay;
 
     [Header("Order Handler")]
     customerControl_script currentCustomer;
     recipe_scriptable currenCustomerOrder;
-    List<ingredient_scriptable.ingredients> ingredientsSelected = new List<ingredient_scriptable.ingredients>();
+    List<ingredients> ingredientsSelected = new List<ingredients>();
     int previousCustomerIndex;
 
     private void Awake()
@@ -44,15 +48,16 @@ public class bakeryManager_script : MonoBehaviour
         if (ingredientsSelected.Count == 0) return;
         Remove();
         // Spawn Feedback for trash
-        Instantiate(Indicator, createDisplay[0].transform.position, Quaternion.identity)
+        Instantiate(Indicator, creationPosition.position, Quaternion.identity)
             .GetComponent<indicator_script>()
-            .SetUpIndicator(trash, createDisplay[0].transform.position.y);
+            .SetUpIndicator(trash, creationPosition.position.y);
     }
 
     void Remove()
     {
         // Remove all display
-        foreach (GameObject display in createDisplay) { display.SetActive(false); }
+        if (currentCreateDisplay != null) Destroy(currentCreateDisplay.gameObject);
+        currentCreateDisplay = Instantiate(createDisplayPrefab, creationPosition.position, Quaternion.identity);
         // Clear the ingredient selected for a new hand
         ingredientsSelected.Clear();
     }
@@ -72,26 +77,26 @@ public class bakeryManager_script : MonoBehaviour
 
         // Getting the order from the customer
         currenCustomerOrder = currentCustomer.GetCustomerData().GetOrder();
-        List<ingredient_scriptable.ingredients> items = currenCustomerOrder.GetList();
+        List<ingredients> items = currenCustomerOrder.GetList();
         foreach (GameObject item in orderDisplay) { item.SetActive(false); }
-        if (items.Contains(ingredient_scriptable.ingredients.baseCake)) orderDisplay[0].SetActive(true);
-        if (items.Contains(ingredient_scriptable.ingredients.cherry)) orderDisplay[1].SetActive(true);
-        if (items.Contains(ingredient_scriptable.ingredients.strawberry)) orderDisplay[2].SetActive(true);
-        if (items.Contains(ingredient_scriptable.ingredients.whiteChocolate)) orderDisplay[3].SetActive(true);
-        if (items.Contains(ingredient_scriptable.ingredients.milkChocolate)) orderDisplay[4].SetActive(true);
-        if (items.Contains(ingredient_scriptable.ingredients.darkChocolate)) orderDisplay[5].SetActive(true);
+        if (items.Contains(ingredients.baseCake)) orderDisplay[0].SetActive(true);
+        if (items.Contains(ingredients.cherry)) orderDisplay[1].SetActive(true);
+        if (items.Contains(ingredients.strawberry)) orderDisplay[2].SetActive(true);
+        if (items.Contains(ingredients.whiteChocolate)) orderDisplay[3].SetActive(true);
+        if (items.Contains(ingredients.milkChocolate)) orderDisplay[4].SetActive(true);
+        if (items.Contains(ingredients.darkChocolate)) orderDisplay[5].SetActive(true);
     }
 
     public void AddIngredient(int index)
     {
         // Changing from index to ingredient_scriptable.ingredients
-        ingredient_scriptable.ingredients item = ingredient_scriptable.ingredients.baseCake;
+        ingredients item = ingredients.baseCake;
         switch (index) {
-            case 1: item = ingredient_scriptable.ingredients.cherry; break;
-            case 2: item = ingredient_scriptable.ingredients.strawberry; break;
-            case 3: item = ingredient_scriptable.ingredients.whiteChocolate; break;
-            case 4: item = ingredient_scriptable.ingredients.milkChocolate; break;
-            case 5: item = ingredient_scriptable.ingredients.darkChocolate; break;
+            case 1: item = ingredients.cherry; break;
+            case 2: item = ingredients.strawberry; break;
+            case 3: item = ingredients.whiteChocolate; break;
+            case 4: item = ingredients.milkChocolate; break;
+            case 5: item = ingredients.darkChocolate; break;
         }
 
         // Checks if the storage has enough of the item
@@ -100,7 +105,7 @@ public class bakeryManager_script : MonoBehaviour
             // Adding the ingredient into the selection to check with order later
             ingredientsSelected.Add(item);
             // Making the display visible for feedback
-            createDisplay[index].SetActive(true);
+            currentCreateDisplay.ShowIngredient(index);
         }
     }
 
