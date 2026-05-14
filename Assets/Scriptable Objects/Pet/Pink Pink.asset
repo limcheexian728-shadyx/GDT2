@@ -16,8 +16,8 @@ MonoBehaviour:
   ingredients: 0100000002000000
   maxLevel: 5
   level: 1
-  isUnlocked: 1
-  isEquiped: 1
+  isUnlocked: 0
+  isEquiped: 0
   cost: 10
   consumeAmount: 3
   eatCooldown: 0.1

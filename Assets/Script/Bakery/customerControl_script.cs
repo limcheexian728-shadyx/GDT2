@@ -21,10 +21,10 @@ public class customerControl_script : MonoBehaviour
         if (isDone)
         {
             body.simulated = false;
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        if (transform.position.x > 2.5)
+        if (transform.position.x < -3.5f)
             Destroy(gameObject);
     }
 

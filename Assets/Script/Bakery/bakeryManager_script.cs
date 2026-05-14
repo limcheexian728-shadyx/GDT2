@@ -71,8 +71,6 @@ public class bakeryManager_script : MonoBehaviour
 
     void SummonCustomer()
     {
-        Remove(); // Clear the order
-
         // Spawning the customer
         currentCustomer = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
 
@@ -144,6 +142,9 @@ public class bakeryManager_script : MonoBehaviour
     {
         if (ingredientsSelected.Count == 0) return;
 
+        currentCreateDisplay.Serve(currentCustomer.transform);
+        currentCreateDisplay = null;
+
         soundManager_script.instance.ButtonClicked();
 
         Sprite display;
@@ -169,6 +170,7 @@ public class bakeryManager_script : MonoBehaviour
 
         shopManager_script.instance.SetCoinDisplay();
         currentCustomer.OrderComplete();
+        Remove();
         SummonCustomer();
     }
 

@@ -8477,7 +8477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 890240240, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  m_Sprite: {fileID: -5806900794468620363, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8617,7 +8617,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -11779,7 +11779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8997a120d11c6fa4bad63eb159272eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::storage
-  reset: 0
+  reset: 1
   coins: 0
   foodGain: 10
   currentFoodCountText: {fileID: 899517684}
@@ -11851,6 +11851,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ba29b9bfdc3d054b87d0d6a3a7c0b11, type: 2}
   - {fileID: 11400000, guid: 9bc1030cd65f5a04fa910503c6f0263b, type: 2}
   - {fileID: 11400000, guid: 8e68c4afe1bafd3419371c72b1cb6334, type: 2}
+  - {fileID: 11400000, guid: df7590062e27f3847b9f2653d171ebff, type: 2}
   fail: {fileID: 8300000, guid: 8666ea8ffb9f8a84c96e7377cd1cd0ad, type: 3}
   success: {fileID: 8300000, guid: 271c529022ca0dd40a38bac8b2aab4ad, type: 3}
   orderDisplay:
@@ -11867,8 +11868,8 @@ MonoBehaviour:
   - {fileID: 1505772831}
   - {fileID: 69301387}
   Indicator: {fileID: 6180230240358349533, guid: 1f9e360d4fb9cc34e941630ef2605eb2, type: 3}
-  successOrder: {fileID: 1782353704, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
-  failOrder: {fileID: -1231714646, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  successOrder: {fileID: -240140124221991914, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
+  failOrder: {fileID: 5784413986015296176, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
   createDisplayPrefab: {fileID: 8585237450765737481, guid: 00a330a0ae193da46bdba27ca9ee1f79, type: 3}
   creationPosition: {fileID: 292039930}
   trash: {fileID: -1906426954, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
@@ -13160,7 +13161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 890240240, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  m_Sprite: {fileID: -5806900794468620363, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

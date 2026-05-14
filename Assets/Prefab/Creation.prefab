@@ -390,6 +390,9 @@ MonoBehaviour:
   - {fileID: 1568445464633543999}
   - {fileID: 3404214396153094421}
   - {fileID: 6705743476764446691}
+  speed: 30
+  liniency: 1.5
+  waitPositionY: 1.5
 --- !u!1 &3152080688694764417
 GameObject:
   m_ObjectHideFlags: 0
