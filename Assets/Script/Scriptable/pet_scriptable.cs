@@ -16,13 +16,13 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] bool isEquiped;
     [SerializeField] int cost = 10;
     [Header("Hunger")]
-    [SerializeField] float hungerThreshold;
-    [SerializeField] float eatCooldown= 0.5f;
+    [SerializeField] int consumeAmount;
+    [SerializeField] float eatCooldown = 0.5f;
 
     public int GetCost() {  return cost; }
     public int GetClickCount() {  return clickCount; }
     public int GetLevel() {  return level; }
-    public float GetHungerThres() {  return hungerThreshold; }
+    public int GetConsumptionAmount() {  return consumeAmount; }
     public float GetEatCooldown() {  return eatCooldown; }
     public bool IsUnlocked() { return isUnlocked; }
     public bool IsEquiped() { return isEquiped; }

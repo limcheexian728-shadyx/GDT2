@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class shopManager_script : MonoBehaviour
 {
@@ -23,11 +24,6 @@ public class shopManager_script : MonoBehaviour
         SetCoinDisplay();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void SetCoinDisplay()
     {
         currencyDisplay.text = resourceManager_script.instance.coins.ToString();
@@ -43,6 +39,7 @@ public class shopManager_script : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        Instantiate(shopItemPrefab, shopContainer).GetComponent<shopItem_script>().SetShopItem(null, -1);
         int i = 0;
         foreach (pet_scriptable pet in all_pets)
         {
@@ -69,9 +66,15 @@ public class shopManager_script : MonoBehaviour
 
     public void Buy(int index)
     {
+        if (index == -1 && resourceManager_script.instance.Spend(100))
+        {
+            resourceManager_script.instance.BuyPetSpace();
+            return;
+        }
         if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
             locked_pets[index].Unlock();
+            locked_pets[index].SetEquip(false);
             Refresh();
         }
     }

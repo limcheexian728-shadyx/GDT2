@@ -1,30 +1,27 @@
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static ingredient_scriptable;
 
 public class petControl_script : MonoBehaviour
 {
     [SerializeField] pet_scriptable petData;
     [SerializeField] GameObject Indicator;
 
-    float currentHungerLevel;
     float cooldown = 2;
     float currentCooldown = 0;
-    int currentClickCount, amtGain;
+    int currentClickCount, amtGain = 1;
     SpriteRenderer sprite;
     Vector3 move_direction;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-
     }
 
     public void SetPet(pet_scriptable pet)
     {
         petData = pet;
         sprite.sprite = pet.sprite;
+        StartCoroutine(EatCycle());
     }
 
     public void ActivatePet(int amt)
@@ -47,6 +44,7 @@ public class petControl_script : MonoBehaviour
             int selection = Random.Range(0, petData.GetIngredients().Count);
             ingredient_scriptable ingredient = petData.GetIngredients()[selection];
             ingredient.Add(amtGain);
+            print(ingredient.name + " --> " + amtGain.ToString());
             if (Indicator != null)
             {
                 Instantiate(Indicator, transform.position, Quaternion.identity)
@@ -93,6 +91,14 @@ public class petControl_script : MonoBehaviour
 
     IEnumerator EatCycle()
     {
-        yield return new WaitForSeconds(petData.GetEatCooldown());
+        while (true)
+        {
+            yield return new WaitForSeconds(petData.GetEatCooldown());
+            if (resourceManager_script.instance.EatFood(petData.GetConsumptionAmount())) 
+            {
+                GainResource();
+                resourceManager_script.instance.UpdateUI();
+            }
+        }
     }
 }
