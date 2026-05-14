@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class petControl_script : MonoBehaviour
@@ -8,7 +9,7 @@ public class petControl_script : MonoBehaviour
 
     float cooldown = 2;
     float currentCooldown = 0;
-    int currentClickCount, amtGain = 1;
+    int amtGain = 1;
     SpriteRenderer sprite;
     AudioSource petsounds;
     Vector3 move_direction;
@@ -32,10 +33,18 @@ public class petControl_script : MonoBehaviour
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);
+            for (int j = 0; j < petData.GetIngredients().Count; j++)
+            {
+                if (resourceManager_script.instance.Convert(petData.GetIngredients()[j]).GetAmount() <= 0)
+                {
+                    selection = j;
+                    break;
+                }
+            }
             ingredient_scriptable ingredient = resourceManager_script.instance.Convert(petData.GetIngredients()[selection]);
             ingredient.Add(amtGain);
             print(ingredient.name + " --> " + amtGain.ToString());
-            if (Indicator != null)
+            if (Indicator != null && soundManager_script.instance.current_page == 0)
             {
                 Instantiate(Indicator, transform.position, Quaternion.identity)
                     .GetComponent<indicator_script>()
@@ -48,6 +57,19 @@ public class petControl_script : MonoBehaviour
     {
         Movement();
         DirectionHandling();
+        SoundHandling();
+    }
+
+    void SoundHandling()
+    {
+        if (soundManager_script.instance.current_page == 0)
+        {
+            petsounds.volume = 1;
+        }
+        else
+        {
+            petsounds.volume = 0.25f;
+        }
     }
 
     Vector3 GetRandomDirection()
@@ -81,13 +103,20 @@ public class petControl_script : MonoBehaviour
 
     IEnumerator EatCycle()
     {
+        float waitSeconds = petData.GetEatCooldown();
         while (true)
         {
-            yield return new WaitForSeconds(petData.GetEatCooldown());
+            yield return new WaitForSeconds(waitSeconds);
             if (resourceManager_script.instance.EatFood(petData.GetConsumptionAmount())) 
             {
                 GainResource();
                 resourceManager_script.instance.UpdateUI();
+                waitSeconds = petData.GetEatCooldown();
+            }
+            else
+            {
+                GainResource();
+                waitSeconds = petData.GetEatCooldown() * 3;
             }
         }
     }

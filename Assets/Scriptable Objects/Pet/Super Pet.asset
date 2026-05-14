@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Super Pet
   m_EditorClassIdentifier: Assembly-CSharp::pet_scriptable
   sprite: {fileID: -1468987107, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  isStarter: 0
   ingredients: 000000000100000002000000040000000300000005000000
   maxLevel: 25
   level: 25

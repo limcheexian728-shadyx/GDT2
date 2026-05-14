@@ -17,15 +17,35 @@ public class shopManager_script : MonoBehaviour
     [SerializeField] GameObject shopItemPrefab;
     [SerializeField] Transform shopContainer;
 
-    void Start()
+    public void Awake()
     {
         instance = this;
+    }
+
+    public void ResetValues()
+    {
+        foreach (var pet in all_pets)
+        {
+            if (!pet.isStarter)
+            {
+                pet.Unlock(false);
+            }
+            else
+            {
+                pet.Unlock(true);
+            }
+        }
+    }
+
+    void Start()
+    {
         Refresh();
         SetCoinDisplay();
     }
 
     public void SetCoinDisplay()
     {
+        resourceManager_script.instance.Save();
         foreach (TMP_Text currentText in currencyDisplay)
         {
             currentText.text = resourceManager_script.instance.coins.ToString();
@@ -80,7 +100,7 @@ public class shopManager_script : MonoBehaviour
         }else if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
             soundManager_script.instance.ButtonClicked();
-            locked_pets[index].Unlock();
+            locked_pets[index].Unlock(true);
             locked_pets[index].SetEquip(false);
         }
         Refresh();

@@ -7,6 +7,7 @@ public class pet_scriptable : ScriptableObject
 {
     [Header("Basics")]
     public Sprite sprite;
+    public bool isStarter;
     [SerializeField] List<ingredients> ingredients;
     [Header("Resource")]
     [SerializeField] int maxLevel= 5;
@@ -27,7 +28,7 @@ public class pet_scriptable : ScriptableObject
     public bool IsEquiped() { return isEquiped; }
     public List<ingredients> GetIngredients() { return ingredients; }
 
-    public void Unlock() {  isUnlocked = true; }
+    public void Unlock(bool state) {  isUnlocked = state; }
     public void SetEquip(bool state) { isEquiped = state; }
     public void LevelUp()
     {

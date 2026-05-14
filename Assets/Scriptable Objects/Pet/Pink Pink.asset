@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Pink Pink
   m_EditorClassIdentifier: Assembly-CSharp::pet_scriptable
   sprite: {fileID: -1994355529, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
+  isStarter: 0
   ingredients: 0100000002000000
   maxLevel: 5
   level: 1
   isUnlocked: 0
   isEquiped: 0
-  cost: 10
+  cost: 500
   consumeAmount: 3
-  eatCooldown: 0.1
+  eatCooldown: 2.5

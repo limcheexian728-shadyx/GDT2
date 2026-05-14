@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using TMPro;
 using UnityEngine;
 using static ingredient_scriptable;
@@ -31,6 +30,7 @@ public class resourceManager_script : MonoBehaviour
     [Header("Equip Handling")]
     public int availableSlots = 3;
     [SerializeField] equip_script equipPrefab;
+    [SerializeField] GameObject nextButton, prevButton;
     [SerializeField] Transform equipTab, equipContainer;
 
     List<pet_scriptable> equipedPets = new List<pet_scriptable>();
@@ -39,14 +39,26 @@ public class resourceManager_script : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
 
-        if (reset) 
-        { 
-            for (int i = 0; i < storageIngredients.Length; i++) 
-            { 
+    private void Start()
+    {
+        if (reset)
+        {
+            shopManager_script.instance.ResetValues();
+
+            PlayerPrefs.SetInt("CurrencySaved", coins);
+            PlayerPrefs.SetInt("SlotsSaved", availableSlots);
+            PlayerPrefs.Save();
+            for (int i = 0; i < storageIngredients.Length; i++)
+            {
                 storageIngredients[i].Reset();
-            } 
+            }
         }
+        if (PlayerPrefs.HasKey("CurrencySaved"))
+            coins = PlayerPrefs.GetInt("CurrencySaved");
+        if (PlayerPrefs.HasKey("SlotsSaved"))
+            availableSlots = PlayerPrefs.GetInt("SlotsSaved");
         UpdateUI();
         Refresh();
     }
@@ -68,6 +80,13 @@ public class resourceManager_script : MonoBehaviour
             newPetControl.SetPet(pet);
             petObjects.Add(newPetControl);
         }
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("CurrencySaved", coins);
+        PlayerPrefs.SetInt("SlotsSaved", availableSlots);
+        PlayerPrefs.Save();
     }
 
     // Handling Equip
@@ -102,6 +121,7 @@ public class resourceManager_script : MonoBehaviour
     }
     public void RefreshEquipPage()
     {
+        print("page refreashed");
         foreach (Transform child in equipContainer)
         {
             Destroy(child.gameObject);
@@ -121,6 +141,13 @@ public class resourceManager_script : MonoBehaviour
                 Instantiate(equipPrefab, equipContainer).Setup(unlockedPets[i + equipPage]);
             }
         }
+
+        print(unlockedPets.Count - (9 * equipPage));
+        if (unlockedPets.Count - (9 * equipPage) > 9) nextButton.SetActive(true);
+        else nextButton.SetActive(false);
+
+        if (equipPage > 0) prevButton.SetActive(true);
+        else prevButton.SetActive(false);
     }
     public void NextPage(bool state)
     {
