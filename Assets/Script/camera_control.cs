@@ -26,5 +26,6 @@ public class camera_control : MonoBehaviour
     public void SwitchScreen(int newScreen)
     {
         targetPosition = screenPosition[newScreen];
+        soundManager_script.instance.current_page = newScreen;
     }
 }
