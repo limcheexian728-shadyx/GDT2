@@ -24,25 +24,12 @@ public class petControl_script : MonoBehaviour
         StartCoroutine(EatCycle());
     }
 
-    public void ActivatePet(int amt)
-    {
-        amtGain = amt;
-
-        // May make it next time to have a loading bar so that clicks turn into progression to gain the resource
-        currentClickCount++;
-        if (currentClickCount == petData.GetClickCount())
-        {
-            GainResource();
-            currentClickCount = 0;
-        } 
-    }
-
     public void GainResource()
     {
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);
-            ingredient_scriptable ingredient = petData.GetIngredients()[selection];
+            ingredient_scriptable ingredient = resourceManager_script.instance.Convert(petData.GetIngredients()[selection]);
             ingredient.Add(amtGain);
             print(ingredient.name + " --> " + amtGain.ToString());
             if (Indicator != null)

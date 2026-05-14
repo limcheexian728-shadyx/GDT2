@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d071a9968d9b654fa0e0a58d0f56f67, type: 3}
+  m_Name: Miaw Pet
+  m_EditorClassIdentifier: Assembly-CSharp::pet_scriptable
+  sprite: {fileID: -1391571032441511040, guid: 629de3d35f5d35140bc2db714ecd0737, type: 3}
+  ingredients: 04000000
+  maxLevel: 5
+  level: 1
+  isUnlocked: 1
+  isEquiped: 0
+  cost: 200
+  consumeAmount: 1
+  eatCooldown: 1

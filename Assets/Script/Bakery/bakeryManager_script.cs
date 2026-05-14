@@ -79,12 +79,36 @@ public class bakeryManager_script : MonoBehaviour
         currenCustomerOrder = currentCustomer.GetCustomerData().GetOrder();
         List<ingredients> items = currenCustomerOrder.GetList();
         foreach (GameObject item in orderDisplay) { item.SetActive(false); }
-        if (items.Contains(ingredients.baseCake)) orderDisplay[0].SetActive(true);
-        if (items.Contains(ingredients.cherry)) orderDisplay[1].SetActive(true);
-        if (items.Contains(ingredients.strawberry)) orderDisplay[2].SetActive(true);
-        if (items.Contains(ingredients.whiteChocolate)) orderDisplay[3].SetActive(true);
-        if (items.Contains(ingredients.milkChocolate)) orderDisplay[4].SetActive(true);
-        if (items.Contains(ingredients.darkChocolate)) orderDisplay[5].SetActive(true);
+        if (items.Contains(ingredients.baseCake))
+        {
+            orderDisplay[0].SetActive(true);
+            orderDisplay[6].SetActive(true);
+        }
+        if (items.Contains(ingredients.cherry))
+        {
+            orderDisplay[1].SetActive(true);
+            orderDisplay[7].SetActive(true);
+        }
+        if (items.Contains(ingredients.strawberry))
+        {
+            orderDisplay[2].SetActive(true);
+            orderDisplay[8].SetActive(true);
+        }
+        if (items.Contains(ingredients.whiteChocolate))
+        {
+            orderDisplay[3].SetActive(true);
+            orderDisplay[9].SetActive(true);
+        }
+        if (items.Contains(ingredients.milkChocolate))
+        {
+            orderDisplay[4].SetActive(true);
+            orderDisplay[10].SetActive(true);
+        }
+        if (items.Contains(ingredients.darkChocolate))
+        {
+            orderDisplay[5].SetActive(true);
+            orderDisplay[11].SetActive(true);
+        }
     }
 
     public void AddIngredient(int index)
