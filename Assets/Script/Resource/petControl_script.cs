@@ -10,11 +10,13 @@ public class petControl_script : MonoBehaviour
     float currentCooldown = 0;
     int currentClickCount, amtGain = 1;
     SpriteRenderer sprite;
+    AudioSource petsounds;
     Vector3 move_direction;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        petsounds = GetComponent<AudioSource>();
     }
 
     public void SetPet(pet_scriptable pet)
@@ -26,6 +28,7 @@ public class petControl_script : MonoBehaviour
 
     public void GainResource()
     {
+        petsounds.Play();
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);

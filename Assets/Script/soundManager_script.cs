@@ -5,15 +5,15 @@ public class soundManager_script : MonoBehaviour
     public static soundManager_script instance;
 
     public int current_page;
+    
+    AudioSource buttonClickSource;
 
-    [SerializeField] AudioSource buttonClickSource;
-
-    void Start()
+    void Awake()
     {
         instance = this;
+        buttonClickSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

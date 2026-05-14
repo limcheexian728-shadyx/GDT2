@@ -17,5 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 877a4924d1b2db64fbec7546a208a402, type: 2}
   requiredUnlocks:
   - {fileID: 11400000, guid: f21b6e5ab93905944940cec78625caad, type: 2}
+  - {fileID: 11400000, guid: d266b925ea753da4b935ba5d268bb7d8, type: 2}
+  - {fileID: 11400000, guid: e7e3da077b8e43948ba85489491ee54f, type: 2}
   isAppeared: 0
   weight: 1

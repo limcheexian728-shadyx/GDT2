@@ -7,19 +7,24 @@ public class customerControl_script : MonoBehaviour
     [SerializeField] float speed = 5;
     bool isDone;
     SpriteRenderer sprite;
+    Rigidbody2D body;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        body = GetComponent<Rigidbody2D>();
         isDone = false;
     }
 
     private void Update()
     {
         if (isDone)
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, speed * Time.deltaTime);
+        {
+            body.simulated = false;
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+        }
 
-        if (transform.localScale.x < 0.01)
+        if (transform.position.x > 2.5)
             Destroy(gameObject);
     }
 

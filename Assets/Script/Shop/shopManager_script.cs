@@ -74,10 +74,12 @@ public class shopManager_script : MonoBehaviour
         {
             if (resourceManager_script.instance.Spend(100))
             {
+                soundManager_script.instance.ButtonClicked();
                 resourceManager_script.instance.BuyPetSpace();
             }
         }else if (resourceManager_script.instance.Spend(locked_pets[index].GetCost()))
         {
+            soundManager_script.instance.ButtonClicked();
             locked_pets[index].Unlock();
             locked_pets[index].SetEquip(false);
         }

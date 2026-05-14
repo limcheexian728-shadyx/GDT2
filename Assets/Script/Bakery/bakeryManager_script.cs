@@ -13,6 +13,11 @@ public class bakeryManager_script : MonoBehaviour
     [SerializeField] List<customer_scriptable> customers;
     List<customer_scriptable> potentialCustomers = new(); // potential customers that can be added into the queue
 
+    [Header("Feedback")]
+    [SerializeField] AudioClip fail;
+    [SerializeField] AudioClip success;
+    AudioSource soundPlayer;
+
     [Header("Order Display")]
     [SerializeField] GameObject[] orderDisplay;
     [SerializeField] GameObject Indicator;
@@ -39,6 +44,7 @@ public class bakeryManager_script : MonoBehaviour
 
     private void Start()
     {
+        soundPlayer = GetComponent<AudioSource>();
         Remove();
         SummonCustomer();
     }
@@ -46,6 +52,7 @@ public class bakeryManager_script : MonoBehaviour
     public void Trash()
     {
         if (ingredientsSelected.Count == 0) return;
+        soundManager_script.instance.ButtonClicked();
         Remove();
         // Spawn Feedback for trash
         Instantiate(Indicator, creationPosition.position, Quaternion.identity)
@@ -137,23 +144,30 @@ public class bakeryManager_script : MonoBehaviour
     {
         if (ingredientsSelected.Count == 0) return;
 
+        soundManager_script.instance.ButtonClicked();
+
         Sprite display;
         if (currenCustomerOrder.CheckRecipe(ingredientsSelected))
         {
             resourceManager_script.instance.GainCoin(currenCustomerOrder.GetPrice());
             // Customer happy
             display = successOrder;
+            soundPlayer.resource = success;
+            soundPlayer.Play();
         }
         else
         {
             // Customer unhappy
             display = failOrder;
+            soundPlayer.resource = fail;
+            soundPlayer.Play();
         }
 
         Instantiate(Indicator, currentCustomer.transform.position, Quaternion.identity)
             .GetComponent<indicator_script>()
             .SetUpIndicator(display, currentCustomer.transform.position.y);
 
+        shopManager_script.instance.SetCoinDisplay();
         currentCustomer.OrderComplete();
         SummonCustomer();
     }
