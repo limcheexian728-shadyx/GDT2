@@ -10,7 +10,7 @@ public class bakeryManager_script : MonoBehaviour
     [Header("Spawn Customer")]
     [SerializeField] customerControl_script customerPrefab; // the customer body
     [SerializeField] Transform spawnPoint; // where to spawn the customer
-    [SerializeField] List<customer_scriptable> customers;
+    List<customer_scriptable> customers;
     List<customer_scriptable> potentialCustomers = new(); // potential customers that can be added into the queue
 
     [Header("Feedback")]
@@ -39,12 +39,13 @@ public class bakeryManager_script : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        Refresh();
     }
 
     private void Start()
     {
+        customers = scriptableHolder_script.instance.customers;
         soundPlayer = GetComponent<AudioSource>();
+        Refresh();
         Remove();
         SummonCustomer();
     }

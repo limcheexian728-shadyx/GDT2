@@ -6,7 +6,6 @@ using static ingredient_scriptable;
 public class resourceManager_script : MonoBehaviour
 {
     public static resourceManager_script instance;
-    [SerializeField] bool reset = false;
 
     [Header("Currency")]
     public int coins;
@@ -43,24 +42,19 @@ public class resourceManager_script : MonoBehaviour
 
     private void Start()
     {
-        if (reset)
-        {
-            shopManager_script.instance.ResetValues();
-
-            PlayerPrefs.SetInt("CurrencySaved", coins);
-            PlayerPrefs.SetInt("SlotsSaved", availableSlots);
-            PlayerPrefs.Save();
-            for (int i = 0; i < storageIngredients.Length; i++)
-            {
-                storageIngredients[i].Reset();
-            }
-        }
         if (PlayerPrefs.HasKey("CurrencySaved"))
             coins = PlayerPrefs.GetInt("CurrencySaved");
         if (PlayerPrefs.HasKey("SlotsSaved"))
             availableSlots = PlayerPrefs.GetInt("SlotsSaved");
         UpdateUI();
         Refresh();
+    }
+
+    public void ResetValues()
+    {
+        PlayerPrefs.SetInt("CurrencySaved", coins);
+        PlayerPrefs.SetInt("SlotsSaved", availableSlots);
+        PlayerPrefs.Save();
     }
 
     public void Refresh()
@@ -121,7 +115,6 @@ public class resourceManager_script : MonoBehaviour
     }
     public void RefreshEquipPage()
     {
-        print("page refreashed");
         foreach (Transform child in equipContainer)
         {
             Destroy(child.gameObject);

@@ -37,7 +37,6 @@ public class customerControl_script : MonoBehaviour
     public void OrderComplete()
     {
         sprite.sortingOrder = 8;
-        print("Order Complete");
         isDone = true;
     }
 

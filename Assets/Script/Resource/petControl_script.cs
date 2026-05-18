@@ -43,7 +43,6 @@ public class petControl_script : MonoBehaviour
             }
             ingredient_scriptable ingredient = resourceManager_script.instance.Convert(petData.GetIngredients()[selection]);
             ingredient.Add(amtGain);
-            print(ingredient.name + " --> " + amtGain.ToString());
             if (Indicator != null && soundManager_script.instance.current_page == 0)
             {
                 Instantiate(Indicator, transform.position, Quaternion.identity)

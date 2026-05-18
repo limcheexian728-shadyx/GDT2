@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
+  m_Name: Floater Customer
+  m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
+  customerSprite: {fileID: 0}
+  possibleOrders:
+  - {fileID: 11400000, guid: 584c7ea5f1c468d4581adf105d14a5ca, type: 2}
+  - {fileID: 11400000, guid: c10227c31373fbf44aaf5afe23375636, type: 2}
+  - {fileID: 11400000, guid: 904c5fdeae6ca594ab46b4fba90ba028, type: 2}
+  - {fileID: 11400000, guid: 56e6929bd4a9ad1498ba0c34dec71834, type: 2}
+  requiredUnlocks:
+  - {fileID: 11400000, guid: e7e3da077b8e43948ba85489491ee54f, type: 2}
+  - {fileID: 11400000, guid: d266b925ea753da4b935ba5d268bb7d8, type: 2}
+  isAppeared: 0
+  weight: 1

@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class shopManager_script : MonoBehaviour
 {
     public static shopManager_script instance;
 
     [Header("Pets")]
-    [SerializeField] List<pet_scriptable> all_pets = new List<pet_scriptable>();
+    List<pet_scriptable> all_pets = new List<pet_scriptable>();
     List<pet_scriptable> locked_pets = new List<pet_scriptable>();
     List<pet_scriptable> unlocked_pets = new List<pet_scriptable>();
 
@@ -22,23 +21,9 @@ public class shopManager_script : MonoBehaviour
         instance = this;
     }
 
-    public void ResetValues()
-    {
-        foreach (var pet in all_pets)
-        {
-            if (!pet.isStarter)
-            {
-                pet.Unlock(false);
-            }
-            else
-            {
-                pet.Unlock(true);
-            }
-        }
-    }
-
     void Start()
     {
+        all_pets = scriptableHolder_script.instance.all_pets;
         Refresh();
         SetCoinDisplay();
     }
