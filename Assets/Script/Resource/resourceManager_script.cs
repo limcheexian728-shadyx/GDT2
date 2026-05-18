@@ -50,13 +50,6 @@ public class resourceManager_script : MonoBehaviour
         Refresh();
     }
 
-    public void ResetValues()
-    {
-        PlayerPrefs.SetInt("CurrencySaved", coins);
-        PlayerPrefs.SetInt("SlotsSaved", availableSlots);
-        PlayerPrefs.Save();
-    }
-
     public void Refresh()
     {
         foreach (Transform pet in petContainer)
