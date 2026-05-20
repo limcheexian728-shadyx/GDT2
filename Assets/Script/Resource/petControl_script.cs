@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class petControl_script : MonoBehaviour
@@ -33,6 +34,7 @@ public class petControl_script : MonoBehaviour
         for (int i = 0; i < petData.GetLevel(); i++)
         {
             int selection = Random.Range(0, petData.GetIngredients().Count);
+            // checks for ingredients with amt 0
             for (int j = 0; j < petData.GetIngredients().Count; j++)
             {
                 if (resourceManager_script.instance.Convert(petData.GetIngredients()[j]).GetAmount() <= 0)
@@ -41,6 +43,7 @@ public class petControl_script : MonoBehaviour
                     break;
                 }
             }
+            // converts the ingredient
             ingredient_scriptable ingredient = resourceManager_script.instance.Convert(petData.GetIngredients()[selection]);
             ingredient.Add(amtGain);
             if (Indicator != null && soundManager_script.instance.current_page == 0)
@@ -89,6 +92,11 @@ public class petControl_script : MonoBehaviour
     }
     void Movement()
     {
+        if (soundManager_script.instance.current_page != 0) return;
+
+        float newYScale = (Mathf.Sin(Time.time * 5) * 0.01f) + 0.5f;
+        transform.localScale = new Vector3(0.5f, newYScale, 0.5f);
+
         transform.Translate(move_direction);
 
         // Checking Position

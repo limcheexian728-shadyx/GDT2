@@ -17,8 +17,8 @@ public class pet_scriptable : ScriptableObject
     [SerializeField] bool isEquiped;
     [SerializeField] int cost = 10;
     [Header("Hunger")]
-    [SerializeField] int consumeAmount;
-    [SerializeField] float eatCooldown = 0.5f;
+    [SerializeField] int consumeAmount = 1;
+    [SerializeField] float eatCooldown = 3;
 
     public int GetCost() {  return cost; }
     public int GetLevel() {  return level; }

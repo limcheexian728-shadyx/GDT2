@@ -1050,7 +1050,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1072,7 +1072,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1093,8 +1093,8 @@ TextureImporter:
       name: Alien Bakery_42
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1115,8 +1115,8 @@ TextureImporter:
       name: Alien Bakery_43
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1129,6 +1129,72 @@ TextureImporter:
       bones: []
       spriteID: 8a83d3fdfaeb37e4aa3f8cfdb889e21b
       internalID: -1751949930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alien Bakery_44
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5091c8b85337f6343a62a367b63fe68f
+      internalID: -1502727952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alien Bakery_45
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0a2791283b02b40ac8b81c48798613
+      internalID: -1740460151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alien Bakery_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d5bc62b7d4f25479d68e14ab365df4
+      internalID: -729013386
       vertices: []
       indices: 
       edges: []
@@ -1188,6 +1254,9 @@ TextureImporter:
       Alien Bakery_41: -1231714646
       Alien Bakery_42: -1808802028
       Alien Bakery_43: -1751949930
+      Alien Bakery_44: -1502727952
+      Alien Bakery_45: -1740460151
+      Alien Bakery_46: -729013386
       Alien Bakery_5: 88160253
       Alien Bakery_6: 203869047
       Alien Bakery_7: -478256172

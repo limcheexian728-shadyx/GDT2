@@ -205,9 +205,9 @@ public class resourceManager_script : MonoBehaviour
     {
         if (input == ingredients.strawberry) return storageIngredients[1];
         if (input == ingredients.cherry) return storageIngredients[2];
-        if (input == ingredients.whiteChocolate) return storageIngredients[3];
+        if (input == ingredients.darkChocolate) return storageIngredients[3];
         if (input == ingredients.milkChocolate) return storageIngredients[4];
-        if (input == ingredients.darkChocolate) return storageIngredients[5];
+        if (input == ingredients.whiteChocolate) return storageIngredients[5];
         return storageIngredients[0];
     }
 }
