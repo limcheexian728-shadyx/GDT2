@@ -68,7 +68,7 @@ public class shopManager_script : MonoBehaviour
         }
 
         resourceManager_script.instance.unlockedPets = unlocked_pets;
-        resourceManager_script.instance.Refresh();
+        resourceManager_script.instance.RefreshActivePets();
 
         bakeryManager_script.instance.Refresh();
     }

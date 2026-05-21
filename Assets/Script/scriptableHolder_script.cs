@@ -18,7 +18,7 @@ public class scriptableHolder_script : MonoBehaviour
         if (reset)
         {
             PlayerPrefs.SetInt("CurrencySaved", 0);
-            PlayerPrefs.SetInt("SlotsSaved", 0);
+            PlayerPrefs.SetInt("SlotsSaved", 3);
             PlayerPrefs.Save();
 
             for (int i = 0; i < storageIngredients.Count; i++)

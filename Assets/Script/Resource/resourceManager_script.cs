@@ -29,6 +29,7 @@ public class resourceManager_script : MonoBehaviour
     [Header("Equip Handling")]
     public int availableSlots = 3;
     [SerializeField] equip_script equipPrefab;
+    [SerializeField] TMP_Text equipAmountDisplay;
     [SerializeField] GameObject nextButton, prevButton;
     [SerializeField] Transform equipTab, equipContainer;
 
@@ -39,7 +40,6 @@ public class resourceManager_script : MonoBehaviour
     {
         instance = this;
     }
-
     private void Start()
     {
         if (PlayerPrefs.HasKey("CurrencySaved"))
@@ -47,10 +47,10 @@ public class resourceManager_script : MonoBehaviour
         if (PlayerPrefs.HasKey("SlotsSaved"))
             availableSlots = PlayerPrefs.GetInt("SlotsSaved");
         UpdateUI();
-        Refresh();
+        RefreshActivePets();
     }
 
-    public void Refresh()
+    public void RefreshActivePets()
     {
         foreach (Transform pet in petContainer)
         {
@@ -67,8 +67,9 @@ public class resourceManager_script : MonoBehaviour
             newPetControl.SetPet(pet);
             petObjects.Add(newPetControl);
         }
-    }
 
+        equipAmountDisplay.text = "Equiped: " + equipedPets.Count.ToString() + " / " + availableSlots.ToString();
+    }
     public void Save()
     {
         PlayerPrefs.SetInt("CurrencySaved", coins);
@@ -88,7 +89,7 @@ public class resourceManager_script : MonoBehaviour
             // add to the list
             equipedPets.Add(pet);
             // Set the pets
-            Refresh();
+            RefreshActivePets();
             return true;
         }
 
@@ -101,7 +102,7 @@ public class resourceManager_script : MonoBehaviour
             // remove from the list
             equipedPets.Remove(pet);
             // Set the pets
-            Refresh();
+            RefreshActivePets();
             return true;
         }
         return false;
@@ -151,7 +152,11 @@ public class resourceManager_script : MonoBehaviour
     }
 
     // Handling Currency
-    public void GainCoin(int amount) { coins += amount; }
+    public void GainCoin(int amount)
+    {
+        coins += amount;
+        if (coins < 0) coins = 0;
+    }
     public bool Spend(int amount)
     {
         // Player a broke-y

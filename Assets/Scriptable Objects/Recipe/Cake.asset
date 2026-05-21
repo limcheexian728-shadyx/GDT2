@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cake
   m_EditorClassIdentifier: Assembly-CSharp::recipe_scriptable
   ingredients: 00000000
-  price: 5
+  price: 2

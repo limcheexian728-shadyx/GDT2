@@ -14,6 +14,7 @@ public class petControl_script : MonoBehaviour
     SpriteRenderer sprite;
     AudioSource petsounds;
     Vector3 move_direction;
+    bool isFed;
 
     private void Awake()
     {
@@ -45,7 +46,16 @@ public class petControl_script : MonoBehaviour
             }
             // converts the ingredient
             ingredient_scriptable ingredient = resourceManager_script.instance.Convert(petData.GetIngredients()[selection]);
-            ingredient.Add(amtGain);
+
+            if (isFed)
+            {
+                ingredient.Add(3 * amtGain);
+            }
+            else
+            {
+                ingredient.Add(amtGain);
+            }
+
             if (Indicator != null && soundManager_script.instance.current_page == 0)
             {
                 Instantiate(Indicator, transform.position, Quaternion.identity)
@@ -116,15 +126,17 @@ public class petControl_script : MonoBehaviour
             yield return new WaitForSeconds(waitSeconds);
             if (resourceManager_script.instance.EatFood(petData.GetConsumptionAmount())) 
             {
+                isFed = true;
                 GainResource();
-                resourceManager_script.instance.UpdateUI();
                 waitSeconds = petData.GetEatCooldown();
             }
             else
             {
+                isFed = false;
                 GainResource();
                 waitSeconds = petData.GetEatCooldown() * 3;
             }
+            resourceManager_script.instance.UpdateUI();
         }
     }
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
   maxLevel: 5
   level: 1
   isUnlocked: 0
-  isEquiped: 1
-  cost: 100
+  isEquiped: 0
+  cost: 50
   consumeAmount: 5
   eatCooldown: 5

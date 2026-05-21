@@ -159,6 +159,7 @@ public class bakeryManager_script : MonoBehaviour
         }
         else
         {
+            resourceManager_script.instance.GainCoin(-currenCustomerOrder.GetPrice());
             // Customer unhappy
             display = failOrder;
             soundPlayer.resource = fail;
