@@ -9,6 +9,10 @@ public class tutorialControl_script : MonoBehaviour
 
     public void SetupTutorial()
     {
+        foreach (GameObject step in stepObject)
+        {
+            step.SetActive(false);
+        }
         currentStep = 0;
         cameraScript.SwitchScreen(stepPage[currentStep]);
         stepObject[currentStep].SetActive(true);
@@ -18,7 +22,10 @@ public class tutorialControl_script : MonoBehaviour
     {
         stepObject[currentStep].SetActive(false);
         currentStep++;
-        cameraScript.SwitchScreen(stepPage[currentStep]);
-        stepObject[currentStep].SetActive(true);
+        if (currentStep < stepPage.Length)
+        {
+            cameraScript.SwitchScreen(stepPage[currentStep]);
+            stepObject[currentStep].SetActive(true);
+        }
     }
 }

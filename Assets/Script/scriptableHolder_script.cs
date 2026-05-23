@@ -6,6 +6,7 @@ public class scriptableHolder_script : MonoBehaviour
     public static scriptableHolder_script instance;
 
     [SerializeField] bool reset = false;
+    [SerializeField] tutorialControl_script tutorialControl;
 
     public List<ingredient_scriptable> storageIngredients;
     public List<customer_scriptable> customers;
@@ -17,6 +18,7 @@ public class scriptableHolder_script : MonoBehaviour
 
         if (reset)
         {
+            tutorialControl.SetupTutorial();
             PlayerPrefs.SetInt("CurrencySaved", 0);
             PlayerPrefs.SetInt("SlotsSaved", 3);
             PlayerPrefs.Save();
