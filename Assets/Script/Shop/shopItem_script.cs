@@ -9,11 +9,14 @@ public class shopItem_script : MonoBehaviour
 
     public void SetShopItem(pet_scriptable petData, int index)
     {
-        if (petData != null)
-        {
-            itemImage.sprite = petData.sprite;
-            costText.text = petData.GetCost().ToString();
-        }
+        itemImage.sprite = petData.sprite;
+        costText.text = petData.GetCost().ToString();
+        GetComponent<Button>().onClick.AddListener(() => shopManager_script.instance.Buy(index));
+    }
+    public void SetShopItem(Sprite image, int cost, int index)
+    {
+        itemImage.sprite = image;
+        costText.text = cost.ToString();
         GetComponent<Button>().onClick.AddListener(() => shopManager_script.instance.Buy(index));
     }
 }

@@ -11,7 +11,7 @@ public class resourceManager_script : MonoBehaviour
     public int coins;
 
     [Header("Resources")]
-    [SerializeField] int foodGain = 10;
+    public int foodGain = 1;
     [SerializeField] TMP_Text currentFoodCountText;
     [SerializeField] ingredient_scriptable[] storageIngredients;
     [SerializeField] TMP_Text[] ui_texts;
@@ -146,9 +146,15 @@ public class resourceManager_script : MonoBehaviour
             equipPage--;
         RefreshEquipPage();
     }
-    public void BuyPetSpace()
+    public int BuyPetSpace()
     {
         availableSlots++;
+        return availableSlots * 50;
+    }
+    public int BuyFoodGain()
+    {
+        foodGain++;
+        return foodGain * 100;
     }
 
     // Handling Currency
