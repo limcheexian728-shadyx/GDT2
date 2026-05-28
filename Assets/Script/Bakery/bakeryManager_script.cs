@@ -143,19 +143,23 @@ public class bakeryManager_script : MonoBehaviour
     {
         if (ingredientsSelected.Count == 0) return;
 
-        currentCreateDisplay.Serve(currentCustomer.transform);
-        currentCreateDisplay = null;
-
         soundManager_script.instance.ButtonClicked();
 
         Sprite display;
         if (currenCustomerOrder.CheckRecipe(ingredientsSelected))
         {
+            currentCreateDisplay.Serve(currentCustomer.transform);
+            currentCreateDisplay = null;
+
             resourceManager_script.instance.GainCoin(currenCustomerOrder.GetPrice());
             // Customer happy
             display = successOrder;
             soundPlayer.resource = success;
             soundPlayer.Play();
+
+            currentCustomer.OrderComplete();
+            Remove();
+            SummonCustomer();
         }
         else
         {
@@ -165,15 +169,11 @@ public class bakeryManager_script : MonoBehaviour
             soundPlayer.resource = fail;
             soundPlayer.Play();
         }
-
+        shopManager_script.instance.SetCoinDisplay();
+        
         Instantiate(Indicator, currentCustomer.transform.position, Quaternion.identity)
             .GetComponent<indicator_script>()
             .SetUpIndicator(display, currentCustomer.transform.position.y);
-
-        shopManager_script.instance.SetCoinDisplay();
-        currentCustomer.OrderComplete();
-        Remove();
-        SummonCustomer();
     }
 
     public void Refresh()
