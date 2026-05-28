@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
   m_Name: Basic Customer 1
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: 4345668878695719071, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
+  customerSprite: {fileID: 8738800928825159274, guid: 46fd1ea41a6583b4b85b393ab57da416, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: de3da30068e329447ab86fc32b80946c, type: 2}
   requiredUnlocks: []

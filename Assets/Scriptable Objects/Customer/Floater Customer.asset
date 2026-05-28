@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
   m_Name: Floater Customer
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: -2869254294414853113, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
+  customerSprite: {fileID: 5063379851255156985, guid: 46fd1ea41a6583b4b85b393ab57da416, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: 584c7ea5f1c468d4581adf105d14a5ca, type: 2}
   - {fileID: 11400000, guid: c10227c31373fbf44aaf5afe23375636, type: 2}

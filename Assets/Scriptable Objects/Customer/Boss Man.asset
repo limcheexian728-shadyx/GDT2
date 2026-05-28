@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff86e309bbb346a88cedb714364d5, type: 3}
   m_Name: Boss Man
   m_EditorClassIdentifier: Assembly-CSharp::customer_scriptable
-  customerSprite: {fileID: -4283537956789858434, guid: 2ce41f89261ae1a44aafc1ee8fc5e8cc, type: 3}
+  customerSprite: {fileID: 7016606797524778041, guid: 46fd1ea41a6583b4b85b393ab57da416, type: 3}
   possibleOrders:
   - {fileID: 11400000, guid: e80c5de997cbd0146b3c91a5588ce9b1, type: 2}
   requiredUnlocks:
