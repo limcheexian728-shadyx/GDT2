@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class scriptableHolder_script : MonoBehaviour
@@ -16,7 +17,7 @@ public class scriptableHolder_script : MonoBehaviour
     {
         instance = this;
 
-        if (reset)
+        if (reset || !PlayerPrefs.HasKey("SlotsSaved"))
         {
             tutorialControl.SetupTutorial();
             PlayerPrefs.SetInt("CurrencySaved", 0);
@@ -32,5 +33,15 @@ public class scriptableHolder_script : MonoBehaviour
                 else pet.Unlock(true);
             }
         }
+    }
+}
+
+public class DeletePlayerPrefsScript : EditorWindow
+{
+    [MenuItem("Window/Delete PlayerPrefs (All)")]
+    static void DeleteAllPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("All PlayerPrefs have been deleted.");
     }
 }
