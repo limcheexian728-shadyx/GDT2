@@ -36,6 +36,7 @@ public class scriptableHolder_script : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 public class DeletePlayerPrefsScript : EditorWindow
 {
     [MenuItem("Window/Delete PlayerPrefs (All)")]
@@ -45,3 +46,4 @@ public class DeletePlayerPrefsScript : EditorWindow
         Debug.Log("All PlayerPrefs have been deleted.");
     }
 }
+#endif

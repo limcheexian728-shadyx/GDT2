@@ -17,7 +17,7 @@ MonoBehaviour:
   ingredients: 05000000
   maxLevel: 5
   level: 1
-  isUnlocked: 1
+  isUnlocked: 0
   isEquiped: 0
   cost: 250
   consumeAmount: 1

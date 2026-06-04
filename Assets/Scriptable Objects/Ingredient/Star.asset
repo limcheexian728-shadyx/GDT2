@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ingredient_scriptable
   sprite: {fileID: 436554987, guid: cb04dc25623ff564faa8106eda8cba28, type: 3}
   type: 1
-  amount: 50
+  amount: 0
