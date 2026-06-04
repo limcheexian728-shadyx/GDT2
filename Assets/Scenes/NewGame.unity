@@ -19149,8 +19149,8 @@ MonoBehaviour:
   - {fileID: 828431154}
   shopItemPrefab: {fileID: 6141677198686956004, guid: 5dae5189eb1169549b3e0696964b5716, type: 3}
   shopContainer: {fileID: 308039561}
-  spaceSprite: {fileID: 4727633781103762509, guid: 5fd6b9db6d3b91847aa469303b88e7be, type: 3}
-  gainSprite: {fileID: 4727633781103762509, guid: 5fd6b9db6d3b91847aa469303b88e7be, type: 3}
+  spaceSprite: {fileID: 340903614, guid: a04f3e59370865c40bbff135d6824f57, type: 3}
+  gainSprite: {fileID: -1295974185, guid: a04f3e59370865c40bbff135d6824f57, type: 3}
 --- !u!4 &7194515668891732421
 Transform:
   m_ObjectHideFlags: 0
